@@ -1,0 +1,1 @@
+The Number of ocurrences of each words in the file is: {hi=4, how=1, are=1, friend=2, my=1, you=3, bye=2}
