@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="database.properties"/>
+	<environments default="stage">
+		<environment id="stage">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+				<property name="driver" value="${DRIVER}"/>
+				<property name="url" value="${URL}"/>
+				<property name="username" value="${USER_NAME}"/>
+				<property name="password" value="${PASSWORD}"/>
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+ 		  <mapper resource="mappers/AirlineMapper.xml"/>
+		  <mapper resource="mappers/AirportMapper.xml"/> 
+		  <mapper resource="mappers/CityMapper.xml"/>
+		  <mapper resource="mappers/CountryMapper.xml"/>
+		  <mapper resource="mappers/ControlTowerLogMapper.xml"/>
+		  <mapper resource="mappers/EmployeeMapper.xml"/>
+		  <mapper resource="mappers/EmployeeTypeMapper.xml"/>
+		  <mapper resource="mappers/FlightMapper.xml"/>
+		  <mapper resource="mappers/GateMapper.xml"/>
+		  <mapper resource="mappers/HangarMapper.xml"/>
+		  <mapper resource="mappers/IdentificationMapper.xml"/>
+		  <mapper resource="mappers/InmigrationlogMapper.xml"/>
+		  <mapper resource="mappers/LicenceMapper.xml"/>
+		  <mapper resource="mappers/PassengerMapper.xml"/>
+		  <mapper resource="mappers/PassengerIdentificationMapper.xml"/>
+		  <mapper resource="mappers/PilotMapper.xml"/>
+		  <mapper resource="mappers/PlaneMapper.xml"/>
+		  <mapper resource="mappers/VehicleMapper.xml"/> 
+	</mappers>
+</configuration>

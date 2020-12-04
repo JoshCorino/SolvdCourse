@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.projectAirport.dao.IPilotDAO">
+	<resultMap id="PilotResultMap" type="com.solvd.projectAirport.model.Pilot">
+		<id property="id" column="id"></id>
+		<result property="firstName" column="first_name"></result>
+		<result property="lastName" column="last_name"></result>
+	</resultMap>
+</mapper>

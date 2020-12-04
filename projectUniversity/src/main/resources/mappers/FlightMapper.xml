@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.projectAirport.dao.IFlightDAO">
+	<resultMap id="FlightResultMap" type="com.solvd.projectAirport.model.Flight">
+		<id property="id" column="id"></id>
+		<result property="idPlane" column="id_plane"></result>
+		<result property="idPilot1" column="id_pilot1"></result>
+		<result property="idPilot2" column="id_pilot2"></result>
+		<result property="idOrginGate" column="id_origin_gate"></result>
+		<result property="idDestinyGate" column="id_destiny_gate"></result>
+		<result property="arriveDate" column="arrive_date"></result>
+	</resultMap>
+</mapper>
