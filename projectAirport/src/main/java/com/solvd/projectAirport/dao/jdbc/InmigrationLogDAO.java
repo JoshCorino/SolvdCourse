@@ -1,4 +1,4 @@
-package com.solvd.projectAirport.dao.mysql;
+package com.solvd.projectAirport.dao.jdbc;
 
 import com.solvd.projectAirport.dao.IInmigrationLogDAO;
 import com.solvd.projectAirport.model.InmigrationLog;

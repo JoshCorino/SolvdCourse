@@ -36,10 +36,10 @@ public class Plane extends AbstractEntity{
 	public void setFuelCapacity(double fuelCapacity) {
 		this.fuelCapacity = fuelCapacity;
 	}
-	public Airline getIdAirline() {
+	public Airline getAirline() {
 		return airline;
 	}
-	public void setIdAirline(Airline airline) {
+	public void setAirline(Airline airline) {
 		this.airline = airline;
 	}
 	@Override

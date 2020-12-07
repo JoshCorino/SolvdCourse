@@ -1,9 +1,9 @@
-package com.solvd.projectAirport.services.mysql;
+package com.solvd.projectAirport.services;
 
 import com.solvd.projectAirport.dao.ICountryDAO;
 import com.solvd.projectAirport.dao.IIdentificationDAO;
-import com.solvd.projectAirport.dao.mysql.CountryDAO;
-import com.solvd.projectAirport.dao.mysql.IdentificationDAO;
+import com.solvd.projectAirport.dao.jdbc.CountryDAO;
+import com.solvd.projectAirport.dao.jdbc.IdentificationDAO;
 import com.solvd.projectAirport.model.Identification;
 
 public class IdentificationService {

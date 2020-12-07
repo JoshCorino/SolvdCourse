@@ -14,9 +14,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
 
-public class ParserDemo {
-	 Logger log = LogManager.getLogger(ParserDemo.class);
-	 public  void validateXml(Schema schema, Document document) {
+public class XmlValidation {
+	 private static Logger log = LogManager.getLogger(XmlValidation.class);
+	 
+	 public static void validateXml(Schema schema, Document document) {
 		  try {
 		   // 3. Get a validator from the schema.
 		   Validator validator = schema.newValidator();
@@ -32,7 +33,7 @@ public class ParserDemo {
 		  }
 	 }
 	 
-	 public  Document parseXmlDom(String xmlName) {
+	 public static Document parseXmlDom(String xmlName) {
 		  Document document = null;
 		  try {
 		   DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -45,7 +46,7 @@ public class ParserDemo {
 	 }
 
 		
-	 public  Schema loadSchema(String schemaFileName) {
+	 public static Schema loadSchema(String schemaFileName) {
 		  Schema schema = null;
 		  try {
 		   //// 1. Lookup a factory for the W3C XML Schema language
@@ -53,8 +54,7 @@ public class ParserDemo {
 		   SchemaFactory factory = SchemaFactory.newInstance(language);
 
 		   /*
-		    * 2. Compile the schema. Here the schema is loaded from a java.io.File, but
-		    * you could use a java.net.URL or a javax.xml.transform.Source instead.
+		    * 2. Compile the schema.
 		    */
 		   schema = factory.newSchema(new File(schemaFileName));
 		  } catch (Exception e) {

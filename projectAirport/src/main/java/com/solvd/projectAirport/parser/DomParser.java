@@ -19,20 +19,21 @@ import javax.xml.validation.Schema;
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
 
-public class DomParserDemo extends ParserDemo{
+public class DomParser{
 	private static final String COUNTRY="country";
 	private static final String CITY="city";
 	private static final String ID="id";
 	private static final String NAME="name";
 	private static final String SCHEMA_PATH="src/main/resources/DemoSchema.xsd";
-	Logger log = LogManager.getLogger(DomParserDemo.class);
+	Logger log = LogManager.getLogger(DomParser.class);
 	
 	 
-	public  List<Country> getCountriesWithCities(String path){
+	public List<Country> getCountriesWithCities(String path){
 		try {
-			 Schema schema = loadSchema(SCHEMA_PATH);
-			 Document document = parseXmlDom(path);
-			 validateXml(schema, document);
+			 Schema schema = XmlValidation.loadSchema(SCHEMA_PATH);
+			 Document document = XmlValidation.parseXmlDom(path);
+			 XmlValidation.validateXml(schema, document);
+			 
 	         File inputFile = new File(path);
 	         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 	         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();

@@ -1,4 +1,4 @@
-package com.solvd.projectAirport.services.mysql;
+package com.solvd.projectAirport.services;
 
 
 import org.apache.logging.log4j.LogManager;
@@ -7,9 +7,9 @@ import org.apache.logging.log4j.Logger;
 import com.solvd.projectAirport.dao.IIdentificationDAO;
 import com.solvd.projectAirport.dao.IPassengerDAO;
 import com.solvd.projectAirport.dao.IPassengerIdentificationDAO;
-import com.solvd.projectAirport.dao.mysql.IdentificationDAO;
-import com.solvd.projectAirport.dao.mysql.PassengerDAO;
-import com.solvd.projectAirport.dao.mysql.PassengerIdentificationDAO;
+import com.solvd.projectAirport.dao.jdbc.IdentificationDAO;
+import com.solvd.projectAirport.dao.jdbc.PassengerDAO;
+import com.solvd.projectAirport.dao.jdbc.PassengerIdentificationDAO;
 import com.solvd.projectAirport.model.Passenger;
 
 public class PassengerService {

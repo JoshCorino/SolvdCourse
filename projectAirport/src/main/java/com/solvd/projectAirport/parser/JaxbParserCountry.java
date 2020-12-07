@@ -13,15 +13,15 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import com.solvd.projectAirport.model.Country;
 
-public class JaxbParserCountry extends ParserDemo{
+public class JaxbParserCountry{
 	
 	private static final String SCHEMA_PATH="src/main/resources/DemoSchema.xsd";
-	Logger log = LogManager.getLogger(DomParserDemo.class);
+	Logger log = LogManager.getLogger(JaxbParserCountry.class);
 
 	public  Country getCountry(String path){
-		Schema schema = loadSchema(SCHEMA_PATH);
-		Document document = parseXmlDom(path);
-		validateXml(schema, document);
+		Schema schema = XmlValidation.loadSchema(SCHEMA_PATH);
+		Document document = XmlValidation.parseXmlDom(path);
+		XmlValidation.validateXml(schema, document);
         try {
             JAXBContext context = JAXBContext.newInstance( Country.class );
             Unmarshaller unmarshaller = context.createUnmarshaller();

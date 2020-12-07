@@ -1,32 +1,20 @@
-package com.solvd.projectAirport.dao.mysql;
+package com.solvd.projectAirport.services;
 
 import java.sql.Date;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.solvd.projectAirport.dao.IPassengerIdentificationDAO;
-import com.solvd.projectAirport.model.Airline;
-import com.solvd.projectAirport.model.City;
-import com.solvd.projectAirport.model.Country;
-import com.solvd.projectAirport.model.Employee;
-import com.solvd.projectAirport.model.EmployeeType;
-import com.solvd.projectAirport.model.Identification;
-import com.solvd.projectAirport.model.Passenger;
-import com.solvd.projectAirport.model.PassengerIdentification;
-import com.solvd.projectAirport.model.Plane;
-import com.solvd.projectAirport.services.mysql.CountryService;
-import com.solvd.projectAirport.services.mysql.EmployeeService;
-import com.solvd.projectAirport.services.mysql.IdentificationService;
-import com.solvd.projectAirport.services.mysql.PassengerService;
-import com.solvd.projectAirport.services.mysql.PlaneService;
+import com.solvd.projectAirport.dao.*;
+import com.solvd.projectAirport.dao.jdbc.*;
+import com.solvd.projectAirport.model.*;
 
 public class Test {
 	
 	public static void main( String[] args ){
-		Logger log = LogManager.getLogger(Test.class);
+		Logger log = LogManager.getLogger(PassengerDAO.class);
 		
-		log.info("Testing insert and select mysql DAO");
+		log.info("Testing insert and select");
 
 		Passenger p = new Passenger(1, "Joshua", "Corino", null);
 		PassengerDAO pd = new PassengerDAO();
@@ -93,9 +81,7 @@ public class Test {
 		Employee fullEmployee= emps.getById(1);
 		log.info("Employee : "+fullEmployee.toString()+" selected");
 		
-		PlaneService planes = new PlaneService();
-		Plane fullPlane= planes.getById(1);
-		log.info("Employee : "+fullPlane.toString()+" selected");
+
 		
 		log.info("Testing delete");
 		
@@ -110,8 +96,6 @@ public class Test {
 		planeDAO.remove(1);
 		airDAO.remove(1);
 		cd.remove(1);	
-		
-		log.info("Testing mysql DAOs finished");
 
     }
 

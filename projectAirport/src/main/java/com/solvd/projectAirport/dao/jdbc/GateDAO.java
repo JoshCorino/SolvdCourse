@@ -1,4 +1,4 @@
-package com.solvd.projectAirport.dao.mysql;
+package com.solvd.projectAirport.dao.jdbc;
 
 import com.solvd.projectAirport.dao.IGateDAO;
 import com.solvd.projectAirport.model.Gate;

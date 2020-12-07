@@ -8,5 +8,7 @@
 		<result property="model" column="model"></result>
 		<result property="passengersCapacity" column="passengers_capacity"></result>
 		<result property="fuelCapacity" column="fuel_capacity"></result>
+		<association property="airline" resultMap="com.solvd.projectAirport.dao.IAirlineDAO.AirlineResultMap"  column="id_owner" />
+		
 	</resultMap>
 </mapper>

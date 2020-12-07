@@ -7,5 +7,6 @@
 		<id property="id" column="id"></id>
 		<result property="name" column="name"></result>
 		<result property="idCountry" column="id_country"></result>
+	
 	</resultMap>
 </mapper>

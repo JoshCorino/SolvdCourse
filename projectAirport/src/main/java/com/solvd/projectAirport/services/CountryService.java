@@ -1,9 +1,9 @@
-package com.solvd.projectAirport.services.mysql;
+package com.solvd.projectAirport.services;
 
 import com.solvd.projectAirport.dao.ICityDAO;
 import com.solvd.projectAirport.dao.ICountryDAO;
-import com.solvd.projectAirport.dao.mysql.CityDAO;
-import com.solvd.projectAirport.dao.mysql.CountryDAO;
+import com.solvd.projectAirport.dao.jdbc.CityDAO;
+import com.solvd.projectAirport.dao.jdbc.CountryDAO;
 import com.solvd.projectAirport.model.Country;
 
 public class CountryService {

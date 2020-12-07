@@ -1,4 +1,4 @@
-package com.solvd.projectAirport.dao.mysql;
+package com.solvd.projectAirport.dao.jdbc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

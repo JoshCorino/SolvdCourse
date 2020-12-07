@@ -1,22 +1,23 @@
-package com.solvd.projectAirport.dao.mysql;
+package com.solvd.projectAirport.dao.jdbc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.solvd.projectAirport.dao.IPlaneDAO;
-
+import com.solvd.projectAirport.model.City;
 import com.solvd.projectAirport.model.Plane;
 
 public class PlaneDAO extends MySQLDAO implements IPlaneDAO{
 	
 	private final String GET_PLANE= "select * from Planes where id=?";
-	private final String GET_AIRLINE_ID_PLANE= "select id_owner from Planes where id=?";
+	private final String GET_PLANES_BY_AIRLINE_ID= "select * from Planes where id_owner=?";
 	private final String REMOVE_PLANE= "delete from Planes where id=?";
 	private final String SAVE_PLANE= "insert into Planes(model,passengers_capacity,fuel_capacity,id_owner) values(?,?,?,?)";
 	private Logger log = LogManager.getLogger(PlaneDAO.class);
@@ -30,7 +31,7 @@ public class PlaneDAO extends MySQLDAO implements IPlaneDAO{
 			pre.setString(1,p.getModel());
 			pre.setInt(2,p.getPassengersCapacity());
 			pre.setDouble(3,p.getFuelCapacity());
-			pre.setLong(4,p.getIdAirline().getId());
+			pre.setLong(4,p.getAirline().getId());
 			int rset = pre.executeUpdate();
 			if(rset==1)
 				log.info("Plane saved");
@@ -92,17 +93,23 @@ public class PlaneDAO extends MySQLDAO implements IPlaneDAO{
 	}
 
 	@Override
-	public long getAirlineIdById(long id) {
-		long l = 0;
+	public ArrayList<Plane> getPlanesByAirlineId(long id) {
+		ArrayList<Plane> result = new ArrayList<Plane>();
 		Connection con = null;
         try {
 			con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(GET_AIRLINE_ID_PLANE);
+			PreparedStatement pre = con.prepareStatement(GET_PLANES_BY_AIRLINE_ID);
 			pre.setLong(1,id);
 			ResultSet rset = pre.executeQuery();
-			if (rset.next())
-				l= rset.getLong("id_owner");
-					
+			while (rset.next()) {
+				Plane p = new Plane();
+				p.setFuelCapacity(rset.getDouble("fuel_capacity"));
+				p.setId(rset.getLong("id"));
+				p.setModel(rset.getString("model"));
+				p.setPassengersCapacity(rset.getInt("passengers_capacity"));
+				result.add(p);
+			}
+			log.info("Cities retrived");
 		} catch (SQLException e) {
 			log.error("SQL Exception, can not get",e);
 		} catch (InterruptedException e) {
@@ -110,7 +117,8 @@ public class PlaneDAO extends MySQLDAO implements IPlaneDAO{
 		}finally{
 			cp.releaseConnection(con);
 		}
-        return l;
+        return result;
 	}
+
 
 }
