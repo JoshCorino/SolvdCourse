@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Lamborghini Tests - Components Test" parallel="methods">
+
+    <test name="Lamborghini Components Test">
+        <classes>
+            <class name="com.solvd.projectLamborghini.ComponentsTest" />
+        </classes>
+    </test>
+
+</suite>

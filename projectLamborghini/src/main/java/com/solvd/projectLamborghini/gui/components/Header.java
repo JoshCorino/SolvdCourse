@@ -37,4 +37,14 @@ public class Header extends AbstractUIObject{
         }
 		return result;
 	}
+	
+	public List<String> getRightListNames(){
+		ArrayList<String> result = new ArrayList<String>();
+        if (!rightList.isEmpty()) {
+            for (ExtendedWebElement link : rightList) {
+                result.add(link.getAttribute("span"));
+            }
+        }
+		return result;
+	}
 }
