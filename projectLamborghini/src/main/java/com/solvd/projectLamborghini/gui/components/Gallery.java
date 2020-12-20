@@ -25,4 +25,4 @@ public class Gallery extends AbstractUIObject{
 		super(driver);
 	}
 
-}
+}	
