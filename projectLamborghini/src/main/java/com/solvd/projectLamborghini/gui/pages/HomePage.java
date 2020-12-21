@@ -43,7 +43,6 @@ public class HomePage extends MyAbstractPage{
     
 	public HomePage(WebDriver driver) {
 		super(driver);
-		setPageAbsoluteURL("https://www.lamborghini.com/en-en/");
 	}
 
 	public Header getHeader() {

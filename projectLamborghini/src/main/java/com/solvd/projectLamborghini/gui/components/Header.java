@@ -1,8 +1,6 @@
 package com.solvd.projectLamborghini.gui.components;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import org.openqa.selenium.SearchContext;
@@ -16,7 +14,6 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
 
 public class Header extends AbstractUIObject{
-    private static final Logger LOGGER = LoggerFactory.getLogger(Header.class);
 
     @FindBy(xpath="/html/body/div/header/nav/a/img")
 	private ExtendedWebElement logo;

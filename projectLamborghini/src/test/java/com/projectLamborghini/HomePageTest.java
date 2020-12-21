@@ -7,7 +7,6 @@ import com.qaprosoft.carina.core.foundation.AbstractTest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**

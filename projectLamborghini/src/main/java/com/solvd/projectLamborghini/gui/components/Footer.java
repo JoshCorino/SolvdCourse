@@ -1,6 +1,6 @@
 package com.solvd.projectLamborghini.gui.components;
 
-import java.util.Arrays;
+
 import java.util.List;
 
 import org.openqa.selenium.SearchContext;

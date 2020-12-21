@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 
@@ -22,29 +23,43 @@ public class HeaderTest extends AbstractTest {
 	private final String EXPECTED_RIGHT_TEXT_2= "MUSEUM";
 	private final String EXPECTED_RIGHT_TEXT_3= "STORE";
 
+	@DataProvider(name = "testHeaderLeftText")
+	public Object[] createLeftData() {
+		 return new Object[] 
+		   { EXPECTED_LEFT_TEXT_1,EXPECTED_LEFT_TEXT_2,EXPECTED_LEFT_TEXT_3,EXPECTED_LEFT_TEXT_4 };		 
+	}
 	
-	@Test
+	@DataProvider(name = "testHeaderRightText")
+	public Object[] createRightData() {
+		 return new Object[] 
+		   { EXPECTED_RIGHT_TEXT_1,EXPECTED_RIGHT_TEXT_2,EXPECTED_RIGHT_TEXT_3 };		 
+	}
+
+
+	
+	@Test(dataProvider = "testHeaderLeftText")
 	@MethodOwner(owner ="Joshua Corino")
-	public void testHeaderNames() {
+	public void testHeaderLeftText(String expectedName) {
 
 		HomePage hp = new HomePage(getDriver());
 		hp.open();
-		
 		Header header = hp.getHeader();
+		
 		List<String> leftNames = header.getLeftListNames();
-		List<String> expectedNames = new ArrayList<String>();
-		expectedNames.add(EXPECTED_LEFT_TEXT_1);
-		expectedNames.add(EXPECTED_LEFT_TEXT_2);
-		expectedNames.add(EXPECTED_LEFT_TEXT_3);
-		expectedNames.add(EXPECTED_LEFT_TEXT_4);
-		Assert.assertEquals(leftNames, expectedNames);
+		Assert.assertTrue(leftNames.contains(expectedName));
+		
+	}
+	
+	@Test(dataProvider = "testHeaderRightText")
+	@MethodOwner(owner ="Joshua Corino")
+	public void testHeaderRightText(String expectedName) {
 
-		List<String> rightNames= header.getRightListNames(); List<String>
-		expectedRightNames = new ArrayList<String>();
-		expectedRightNames.add(EXPECTED_RIGHT_TEXT_1); 
-		expectedRightNames.add(EXPECTED_RIGHT_TEXT_2);
-		expectedRightNames.add(EXPECTED_RIGHT_TEXT_3); 
-		Assert.assertEquals(rightNames,expectedRightNames);
+		HomePage hp = new HomePage(getDriver());
+		hp.open();
+		Header header = hp.getHeader();
+		
+		List<String> rightNames= header.getRightListNames(); 
+		Assert.assertTrue(rightNames.contains(expectedName));		 
 		
 	}
 

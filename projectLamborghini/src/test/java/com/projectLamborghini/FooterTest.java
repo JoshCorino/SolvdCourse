@@ -4,11 +4,7 @@ import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.solvd.projectLamborghini.gui.components.*;
 import com.solvd.projectLamborghini.gui.pages.HomePage;
 
-import java.util.ArrayList;
-import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
