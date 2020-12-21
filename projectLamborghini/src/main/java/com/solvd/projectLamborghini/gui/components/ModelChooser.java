@@ -1,5 +1,6 @@
 package com.solvd.projectLamborghini.gui.components;
 
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -17,8 +18,8 @@ public class ModelChooser extends AbstractUIObject{
 	@FindBy(xpath="//*[@id=\"families-gallery-texts\"]/div/div[1]/div[2]/button[2]")
 	private ExtendedWebElement buttonNext;
 	
-	public ModelChooser(WebDriver driver) {
-		super(driver);
+	public ModelChooser(WebDriver driver, SearchContext searchContext) {
+		super(driver, searchContext);
 	}
 
 }

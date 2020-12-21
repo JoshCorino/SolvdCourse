@@ -1,5 +1,6 @@
 package com.solvd.projectLamborghini.gui.components;
 
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -21,8 +22,8 @@ public class Gallery extends AbstractUIObject{
 	private ExtendedWebElement linkToMore;
 	
 	
-	public Gallery(WebDriver driver) {
-		super(driver);
+	public Gallery(WebDriver driver, SearchContext searchContext) {
+		super(driver, searchContext);
 	}
 
 }	

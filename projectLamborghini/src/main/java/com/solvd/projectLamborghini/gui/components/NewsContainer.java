@@ -2,6 +2,7 @@ package com.solvd.projectLamborghini.gui.components;
 
 import java.util.List;
 
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -16,8 +17,8 @@ public class NewsContainer extends AbstractUIObject{
 	@FindBy(xpath="//div/a[@class='btn boxed dark']")
     private ExtendedWebElement seeAllButton;
     
-	public NewsContainer(WebDriver driver) {
-		super(driver);
+	public NewsContainer(WebDriver driver, SearchContext searchContext) {
+		super(driver, searchContext);
 	}
 
 }

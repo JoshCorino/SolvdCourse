@@ -1,5 +1,6 @@
 package com.solvd.projectLamborghini.gui.components;
 
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -21,8 +22,8 @@ public class CarConfigurator extends AbstractUIObject{
 	@FindBy(xpath = "//*[@id=\"model-chooser\"]/div[1]/div[1]/div/div[2]")
 	private ButtonsPagination pagination;
 	
-	public CarConfigurator(WebDriver driver) {
-		super(driver);
+	public CarConfigurator(WebDriver driver, SearchContext searchContext) {
+		super(driver, searchContext);
 	}
 
 }

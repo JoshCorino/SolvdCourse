@@ -1,5 +1,6 @@
 package com.solvd.projectLamborghini.gui.components;
 
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -17,8 +18,8 @@ public class DisclaimerCookie extends AbstractUIObject{
 	@FindBy(xpath="//*[@id=\"disclaimer-cookie\"]/div/div[2]/button")
 	private ExtendedWebElement buttonAgree;
 	
-	public DisclaimerCookie(WebDriver driver) {
-		super(driver);
+	public DisclaimerCookie(WebDriver driver, SearchContext searchContext) {
+		super(driver, searchContext);
 	}
 
 }

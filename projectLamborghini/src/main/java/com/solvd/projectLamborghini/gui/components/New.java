@@ -1,5 +1,6 @@
 package com.solvd.projectLamborghini.gui.components;
 
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -20,8 +21,8 @@ public class New extends AbstractUIObject{
     @FindBy(xpath="//*[@id=\"news\"]/section/div/div/div/div/a")
     private ExtendedWebElement readMoreButton;
     
-	public New(WebDriver driver) {
-		super(driver);
+	public New(WebDriver driver, SearchContext searchContext) {
+		super(driver, searchContext);
 	}
 
 }

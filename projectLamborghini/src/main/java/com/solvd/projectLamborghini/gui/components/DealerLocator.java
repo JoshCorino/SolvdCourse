@@ -1,5 +1,6 @@
 package com.solvd.projectLamborghini.gui.components;
 
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -15,8 +16,8 @@ public class DealerLocator extends AbstractUIObject{
 	@FindBy(xpath = "//*[@id=\"banner\"]/div/div[2]/a")
 	private ExtendedWebElement button;
 	
-	public DealerLocator(WebDriver driver) {
-		super(driver);
+	public DealerLocator(WebDriver driver, SearchContext searchContext) {
+		super(driver, searchContext);
 	}
 
 }

@@ -43,6 +43,40 @@ public class HomePage extends MyAbstractPage{
     
 	public HomePage(WebDriver driver) {
 		super(driver);
+		setPageAbsoluteURL("https://www.lamborghini.com/en-en/");
 	}
 
+	public Header getHeader() {
+		return header;
+	}
+
+	public Gallery getGallery() {
+		return gallery;
+	}
+
+	public CarConfigurator getCarConfigurator() {
+		return carConfigurator;
+	}
+
+	public DealerLocator getDealerLocator() {
+		return dealerLocator;
+	}
+
+	public NewsContainer getNewsContainer() {
+		return newsContainer;
+	}
+
+	public Footer getFooterMenu() {
+		return footerMenu;
+	}
+
+	public DisclaimerCookie getDisclaimerCookie() {
+		return disclaimerCookie;
+	}
+
+	public EmissionsBanner getEmissionsBanner() {
+		return emissionsBanner;
+	}
+
+	
 }

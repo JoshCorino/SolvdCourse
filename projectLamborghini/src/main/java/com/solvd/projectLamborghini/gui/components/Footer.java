@@ -2,6 +2,7 @@ package com.solvd.projectLamborghini.gui.components;
 
 import java.util.List;
 
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -19,8 +20,8 @@ public class Footer extends AbstractUIObject{
     @FindBy(xpath="//*[@id=\"scroll-container\"]/footer/div/div/div/div/div[2]")
     private List<ExtendedWebElement> socialLinksList;
     
-	public Footer(WebDriver driver) {
-		super(driver);
+	public Footer(WebDriver driver, SearchContext searchContext) {
+		super(driver, searchContext);
 	}
 
 }

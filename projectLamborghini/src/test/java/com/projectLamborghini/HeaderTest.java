@@ -3,6 +3,7 @@ package com.projectLamborghini;
 
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
+import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.solvd.projectLamborghini.gui.components.*;
 import com.solvd.projectLamborghini.gui.pages.HomePage;
 
@@ -23,13 +24,19 @@ public class HeaderTest extends AbstractTest {
     @Test
     public void testHeader() {
 
-        Header header = new Header(getDriver());
+    	HomePage hp = new HomePage(getDriver());
+    	hp.open();
+        Header header = hp.getHeader();
         String leftInfo= header.getLeftListNames().toString();
-        LOGGER.info(leftInfo);        
-        Assert.assertEquals(leftInfo, "[\"MODELS\",\"OWNERSHIP\",\"MOTORSPORT\",\"PRE-OWNED\" ]");
+        /*LOGGER.info(leftInfo);        
+        Assert.assertEquals(leftInfo, "[[MODELS,OWNERSHIP,MOTORSPORT,PRE-OWNED]]");
         String rightInfo= header.getRightListNames().toString();
         LOGGER.info(rightInfo);        
-        Assert.assertEquals(rightInfo, "[\"DEALERSHIPS\",\"MUSEUM\",\"STORE\" ]");
+        Assert.assertEquals(rightInfo, "[[DEALERSHIPS,MUSEUM,STORE]]");*/
+        LOGGER.info("entro");
+        for(ExtendedWebElement e: header.getLeftList()) {
+        	LOGGER.info(e.toString());
+        }
     }
 
 
