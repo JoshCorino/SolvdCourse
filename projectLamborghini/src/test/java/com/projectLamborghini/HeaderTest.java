@@ -5,7 +5,6 @@ import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.solvd.projectLamborghini.gui.components.*;
 import com.solvd.projectLamborghini.gui.pages.HomePage;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.testng.Assert;

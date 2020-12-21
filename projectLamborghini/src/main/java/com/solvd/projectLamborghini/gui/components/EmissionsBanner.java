@@ -16,4 +16,8 @@ public class EmissionsBanner extends AbstractUIObject{
 		super(driver, searchContext);
 	}
 
+	public String getText() {
+		return bannerText.getText();
+	}
+
 }

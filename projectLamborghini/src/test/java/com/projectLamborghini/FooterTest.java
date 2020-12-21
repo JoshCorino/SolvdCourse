@@ -14,7 +14,7 @@ public class FooterTest  extends AbstractTest {
 	
     @Test
 	@MethodOwner(owner ="Joshua Corino")
-	public void testFooterNames() {
+	public void testFooterText() {
 
 		HomePage hp = new HomePage(getDriver());
 		hp.open();
@@ -23,8 +23,8 @@ public class FooterTest  extends AbstractTest {
 		String namesList = footer.getLinkListText();
 		Assert.assertEquals(namesList, EXPECTED_TEXT);
 		
-		String text= footer.getMainText();
-		Assert.assertEquals(text.replaceAll("\n", ""),EXPECTED_MAIN_TEXT);
+		String text= footer.getMainText().replaceAll("\n", "");
+		Assert.assertEquals(text,EXPECTED_MAIN_TEXT);
 		
 	}
 }

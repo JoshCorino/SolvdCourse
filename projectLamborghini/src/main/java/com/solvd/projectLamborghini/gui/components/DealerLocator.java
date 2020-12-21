@@ -20,4 +20,7 @@ public class DealerLocator extends AbstractUIObject{
 		super(driver, searchContext);
 	}
 
+	public ExtendedWebElement getButton() {
+		return button;
+	}
 }

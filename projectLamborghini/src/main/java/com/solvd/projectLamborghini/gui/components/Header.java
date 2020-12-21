@@ -40,5 +40,4 @@ public class Header extends AbstractUIObject{
 		return Arrays.asList(rightList.getText().split("\\r?\\n"));
 	}
 	
-	
 }
