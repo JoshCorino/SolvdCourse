@@ -1,5 +1,6 @@
 package com.solvd.projectLamborghini.gui.components;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.openqa.selenium.SearchContext;
@@ -12,7 +13,7 @@ import com.qaprosoft.carina.core.gui.AbstractUIObject;
 public class Footer extends AbstractUIObject{
 
     @FindBy(xpath="//*[@id=\"scroll-container\"]/footer/div/div/div/div/div[1]/div[1]/ul")
-    private List<ExtendedWebElement> linksList;
+    private ExtendedWebElement linksList;
     
     @FindBy(xpath="//*[@id=\"scroll-container\"]/footer/div/div/div/div/div[1]/div[3]/p")
     private ExtendedWebElement text;
@@ -24,4 +25,13 @@ public class Footer extends AbstractUIObject{
 		super(driver, searchContext);
 	}
 
+	public String getLinkListText(){
+
+		return linksList.getText();
+	}
+	
+	public String getMainText() {
+		return text.getText();
+	}
+	
 }
