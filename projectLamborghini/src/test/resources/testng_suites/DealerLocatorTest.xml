@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Lamborghini Tests - Dealer locator Test" parallel="methods">
+
+    <test name="Lamborghini Dealer locator Test">
+        <classes>
+            <class name="com.solvd.projectLamborghini.DealerLocatorTest" />
+        </classes>
+    </test>
+
+</suite>

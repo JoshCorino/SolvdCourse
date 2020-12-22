@@ -25,6 +25,9 @@ import org.testng.annotations.Test;
 public class DealerLocatorTest extends AbstractTest {
 
 	private final String EXPECTED_URL= "https://www.lamborghini.com/en-en/dealer-locator";
+	private final String EXPECTED_TITLE= "DEALER LOCATOR";
+	private final String EXPECTED_DESCRIPTION= "FIND YOUR COUNTRY DEALER";
+	
     @Test
 	@MethodOwner(owner ="Joshua Corino")
 	public void testButton() {
@@ -38,5 +41,7 @@ public class DealerLocatorTest extends AbstractTest {
 		Assert.assertEquals(getDriver().getCurrentUrl(),EXPECTED_URL);		 
 		
 	}
+    
+
 
 }

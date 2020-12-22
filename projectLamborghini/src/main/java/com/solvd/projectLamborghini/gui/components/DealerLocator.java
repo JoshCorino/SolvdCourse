@@ -16,11 +16,21 @@ public class DealerLocator extends AbstractUIObject{
 	@FindBy(xpath = "//*[@id=\"banner\"]/div/div[2]/a")
 	private ExtendedWebElement button;
 	
+
+	
 	public DealerLocator(WebDriver driver, SearchContext searchContext) {
 		super(driver, searchContext);
 	}
 
 	public ExtendedWebElement getButton() {
 		return button;
+	}
+	
+	public String getTitleText() {
+		return title.getText();
+	}
+	
+	public String getDescriptionText() {
+		return description.getText();
 	}
 }
