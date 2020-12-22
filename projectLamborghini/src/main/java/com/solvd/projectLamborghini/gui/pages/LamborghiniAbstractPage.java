@@ -4,9 +4,9 @@ import org.openqa.selenium.WebDriver;
 
 import com.qaprosoft.carina.core.gui.AbstractPage;
 
-public abstract class MyAbstractPage extends AbstractPage{
+public abstract class LamborghiniAbstractPage extends AbstractPage{
 
-	public MyAbstractPage(WebDriver driver) {
+	public LamborghiniAbstractPage(WebDriver driver) {
 		super(driver);
 	}
 

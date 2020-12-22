@@ -14,7 +14,7 @@ import com.solvd.projectLamborghini.gui.components.Gallery;
 import com.solvd.projectLamborghini.gui.components.Header;
 import com.solvd.projectLamborghini.gui.components.NewsContainer;
 
-public class HomePage extends MyAbstractPage{
+public class HomePage extends LamborghiniAbstractPage{
     private static final Logger LOGGER = LoggerFactory.getLogger(HomePage.class);
     
     @FindBy(xpath="/html/body/div/header") 
