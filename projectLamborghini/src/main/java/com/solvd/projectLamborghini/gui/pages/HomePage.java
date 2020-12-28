@@ -1,81 +1,86 @@
 package com.solvd.projectLamborghini.gui.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.solvd.projectLamborghini.gui.components.CarConfigurator;
-import com.solvd.projectLamborghini.gui.components.DealerLocator;
-import com.solvd.projectLamborghini.gui.components.DisclaimerCookie;
-import com.solvd.projectLamborghini.gui.components.EmissionsBanner;
-import com.solvd.projectLamborghini.gui.components.Footer;
-import com.solvd.projectLamborghini.gui.components.Gallery;
-import com.solvd.projectLamborghini.gui.components.Header;
-import com.solvd.projectLamborghini.gui.components.NewsContainer;
+import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.solvd.projectLamborghini.gui.components.New;
 
 public class HomePage extends LamborghiniAbstractPage{
+	
     private static final Logger LOGGER = LoggerFactory.getLogger(HomePage.class);
     
-    @FindBy(xpath="/html/body/div/header") 
-    private Header header;
+    //Models 
+	@FindBy(xpath="//*[@id=\"families-gallery-texts\"]/div/div[1]/div[1]")
+	private ExtendedWebElement galleryTag;
+	
+	@FindBy(xpath="//*[@id=\"families-gallery-texts\"]/div/div[1]/div[2]/button[1]")
+	private ExtendedWebElement galleryButtonPrev;
+	
+	@FindBy(xpath="//*[@id=\"families-gallery-texts\"]/div/div[1]/div[2]/button[2]")
+	private ExtendedWebElement galleryButtonNext;
+		
+	@FindBy(xpath="//*[@id=\"families-gallery-texts\"]/div/div[2]/div[2]/button")
+	private ExtendedWebElement galleryExploreMoreButton;
+	
+	//Car configurator
+	@FindBy(xpath = "//*[@id=\"model-chooser\"]/div[1]/div[1]/div/div[1]/div[1]/h3/div")
+	private ExtendedWebElement carConfiguratorTitle;
+	
+	@FindBy(xpath = "//*[@id=\"model-chooser\"]/div[1]/div[1]/div/div[1]/div[1]/h2")
+	private ExtendedWebElement carConfiguratorDescription;
+	
+	@FindBy(xpath = "//*[@id=\"model-chooser\"]/div[1]/div[1]/div/div[1]/div[1]/a")
+	private ExtendedWebElement carConfiguratorButton;
+	
+	@FindBy(xpath ="//*[@id=\"model-chooser\"]/div[1]/div[1]/div/div[2]")
+	private List<ExtendedWebElement> carConfiguratorLinks;
     
-    @FindBy(id="families-gallery") 
-    private Gallery gallery;
+    //Dealer locator
+	@FindBy(xpath = "//*[@id=\"banner\"]/div/div[2]/h4")
+	private ExtendedWebElement dealerLocatorTitle;
+	
+	@FindBy(xpath = "//*[@id=\"banner\"]/div/div[2]/h2")
+	private ExtendedWebElement dealerLocatorDescription;
+	
+	@FindBy(xpath = "//*[@id=\"banner\"]/div/div[2]/a")
+	private ExtendedWebElement dealerLocatorButton;
     
-    @FindBy(id="model-chooser") 
-    private CarConfigurator carConfigurator;
-    
-    @FindBy(id="banner")
-    private DealerLocator dealerLocator;
-    
-    @FindBy(id="news")
-    private NewsContainer newsContainer;
-    
-    @FindBy(className="container-fluid")
-    private Footer footerMenu;
-  
-    @FindBy(id="disclaimer-cookie")
-    private DisclaimerCookie disclaimerCookie;
-    
-    @FindBy(xpath="//div[@class='emissions-banner fixed-bottom text-center']")
-    private EmissionsBanner emissionsBanner;
+	//News
+	@FindBy(xpath = "//div[@id='news']//section")
+	private List<New> news;
+	
+	@FindBy(xpath="//div/a[@class='btn boxed dark']")
+    private ExtendedWebElement seeAllNewsButton;
+      
+    //Emmissions banner
+	@FindBy(xpath="/html/body/div/div[3]")
+	private ExtendedWebElement bannerText;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
     
 	public HomePage(WebDriver driver) {
 		super(driver);
 	}
 
-	public Header getHeader() {
-		return header;
+
+	public ExtendedWebElement getDealerLocatorTitle() {
+		return dealerLocatorTitle;
 	}
 
-	public Gallery getGallery() {
-		return gallery;
+
+	public ExtendedWebElement getDealerLocatorDescription() {
+		return dealerLocatorDescription;
 	}
 
-	public CarConfigurator getCarConfigurator() {
-		return carConfigurator;
+	public ExtendedWebElement getDealerLocatorButton() {
+		return dealerLocatorButton;
 	}
 
-	public DealerLocator getDealerLocator() {
-		return dealerLocator;
+	public ExtendedWebElement getEmissionsBanner() {
+		return bannerText;
 	}
-
-	public NewsContainer getNewsContainer() {
-		return newsContainer;
-	}
-
-	public Footer getFooterMenu() {
-		return footerMenu;
-	}
-
-	public DisclaimerCookie getDisclaimerCookie() {
-		return disclaimerCookie;
-	}
-
-	public EmissionsBanner getEmissionsBanner() {
-		return emissionsBanner;
-	}
-
 	
 }
