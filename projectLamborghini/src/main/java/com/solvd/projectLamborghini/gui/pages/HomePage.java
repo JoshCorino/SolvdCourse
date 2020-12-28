@@ -82,5 +82,65 @@ public class HomePage extends LamborghiniAbstractPage{
 	public ExtendedWebElement getEmissionsBanner() {
 		return bannerText;
 	}
+
+
+	public static Logger getLogger() {
+		return LOGGER;
+	}
+
+
+	public ExtendedWebElement getGalleryTag() {
+		return galleryTag;
+	}
+
+
+	public ExtendedWebElement getGalleryButtonPrev() {
+		return galleryButtonPrev;
+	}
+
+
+	public ExtendedWebElement getGalleryButtonNext() {
+		return galleryButtonNext;
+	}
+
+
+	public ExtendedWebElement getGalleryExploreMoreButton() {
+		return galleryExploreMoreButton;
+	}
+
+
+	public ExtendedWebElement getCarConfiguratorTitle() {
+		return carConfiguratorTitle;
+	}
+
+
+	public ExtendedWebElement getCarConfiguratorDescription() {
+		return carConfiguratorDescription;
+	}
+
+
+	public ExtendedWebElement getCarConfiguratorButton() {
+		return carConfiguratorButton;
+	}
+
+
+	public List<ExtendedWebElement> getCarConfiguratorLinks() {
+		return carConfiguratorLinks;
+	}
+
+
+	public List<New> getNews() {
+		return news;
+	}
+
+
+	public ExtendedWebElement getSeeAllNewsButton() {
+		return seeAllNewsButton;
+	}
+
+
+	public ExtendedWebElement getBannerText() {
+		return bannerText;
+	}
 	
 }
