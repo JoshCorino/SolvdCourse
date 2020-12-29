@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
 
-public class PeoplePage extends AbstractUIObject{
+public class PeoplePage extends LamborghiniAbstractPage{
 
 	@FindBy(xpath="//*[@id=\"block-lambo-content\"]/section/div[3]/p")
 	private ExtendedWebElement mainText;

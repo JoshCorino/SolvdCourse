@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
 
-public class OwnershipPage extends AbstractUIObject{
+public class OwnershipPage extends LamborghiniAbstractPage{
 
 	@FindBy(xpath="//*[@id=\"preowned\"]/div/p[2]")
 	private ExtendedWebElement poloText;

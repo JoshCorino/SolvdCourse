@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
 
-public class PreOwnedPage extends AbstractUIObject{
+public class PreOwnedPage extends LamborghiniAbstractPage{
 
 	@FindBy(xpath="//*[@id=\"images-sx-texts-dx\"]/div[2]/div/div[2]/div/div/div/p")
 	private ExtendedWebElement mainText;

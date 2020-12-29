@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
 
-public class StorePage extends AbstractUIObject{
+public class StorePage extends LamborghiniAbstractPage{
 	
 	@FindBy(xpath="//*[@id=\"block-lambo-content\"]/section/a[2]")
 	private ExtendedWebElement goToStoreButton;
