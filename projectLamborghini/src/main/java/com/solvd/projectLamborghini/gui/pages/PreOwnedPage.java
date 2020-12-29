@@ -1,5 +1,36 @@
 package com.solvd.projectLamborghini.gui.pages;
 
-public class PreOwnedPage {
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.FindBy;
+
+import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.qaprosoft.carina.core.gui.AbstractUIObject;
+
+public class PreOwnedPage extends AbstractUIObject{
+
+	@FindBy(xpath="//*[@id=\"images-sx-texts-dx\"]/div[2]/div/div[2]/div/div/div/p")
+	private ExtendedWebElement mainText;
+	
+	@FindBy(xpath="//*[@id=\"simple-list\"]/div/div")
+	private ExtendedWebElement descriptionText;
+	
+	@FindBy(xpath="//*[@id=\"simple-list--2\"]/div/div/div/p")
+	private ExtendedWebElement disclaimerText;
+	
+	public PreOwnedPage(WebDriver driver) {
+		super(driver);
+	}
+
+	public ExtendedWebElement getMainText() {
+		return mainText;
+	}
+
+	public ExtendedWebElement getDescriptionText() {
+		return descriptionText;
+	}
+
+	public ExtendedWebElement getDisclaimerText() {
+		return disclaimerText;
+	}
 
 }

@@ -30,5 +30,35 @@ public class HistoryPage extends LamborghiniAbstractPage{
 		super(driver);
 	}
 
+
+	public ExtendedWebElement getHorizontalTimeLine() {
+		return horizontalTimeLine;
+	}
+
+
+	public ExtendedWebElement getVerticalTimeLine() {
+		return verticalTimeLine;
+	}
+
+
+	public ExtendedWebElement getMainImg() {
+		return mainImg;
+	}
+
+
+	public ExtendedWebElement getMainText() {
+		return mainText;
+	}
+
+
+	public ExtendedWebElement getSecondaryImgOne() {
+		return secondaryImgOne;
+	}
+
+
+	public ExtendedWebElement getSecondaryImgTwo() {
+		return secondaryImgTwo;
+	}
+
 	
 }
