@@ -34,7 +34,7 @@ public class Country extends AbstractEntity {
 	}
 	@Override
 	public String toString() {
-		return "Country [name=" + name + ", cities=" + getCities() + "]";
+		return "Country [name=" + name + ", cities=" + getCities() + ", id="+getId()+"]";
 	}
 	public void addCities(List<City> cities) {
 		this.cities=cities;

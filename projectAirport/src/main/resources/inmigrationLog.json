@@ -10,18 +10,18 @@
       "type" : "Passport",
       "description" : "passport passport",
       "country" : {
-        "id" : 1,
+        "id" : 0,
         "name" : "Argentina",
         "cities" : [ {
-          "id" : 1,
+          "id" : 0,
           "name" : "Mar del plata",
           "idCountry" : 1
         }, {
-          "id" : 2,
+          "id" : 0,
           "name" : "Necochea",
           "idCountry" : 1
         }, {
-          "id" : 3,
+          "id" : 0,
           "name" : "Tandil",
           "idCountry" : 1
         } ]

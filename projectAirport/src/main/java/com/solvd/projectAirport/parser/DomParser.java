@@ -23,6 +23,7 @@ public class DomParser{
 	private static final String COUNTRY="country";
 	private static final String CITY="city";
 	private static final String ID="id";
+	private static final String ID_COUNTRY="id_country";
 	private static final String NAME="name";
 	private static final String SCHEMA_PATH="src/main/resources/DemoSchema.xsd";
 	Logger log = LogManager.getLogger(DomParser.class);
@@ -52,7 +53,7 @@ public class DomParser{
 	            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 	               Element eElement = (Element) nNode;
 	               Country c = new Country();
-	               c.setId(Long.parseLong(eElement.getElementsByTagName(ID).item(0).getTextContent()));
+	               c.setId(Long.parseLong(eElement.getAttribute(ID)));	               
 	               c.setName(eElement.getElementsByTagName(NAME).item(0).getTextContent());
 	               
 		  	       NodeList cityList = eElement.getElementsByTagName(CITY);
@@ -63,9 +64,9 @@ public class DomParser{
 		 	          if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 		 	             Element childElement = (Element) childNode;
 		 	             City city = new City();
-		 	             city.setId(Long.parseLong(childElement.getElementsByTagName(ID).item(0).getTextContent()));
+		 	             city.setId(Long.parseLong(childElement.getAttribute(ID)));
 		 	             city.setName(childElement.getElementsByTagName(NAME).item(0).getTextContent());
-		 	             city.setIdCountry(Long.parseLong(eElement.getElementsByTagName(ID).item(0).getTextContent()));
+		 	             city.setIdCountry(Long.parseLong(eElement.getElementsByTagName(ID_COUNTRY).item(0).getTextContent()));
 		 	             cities.add(city);
 		 	          }
 		 	       } 

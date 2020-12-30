@@ -1,26 +1,26 @@
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" >
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-<xs:element name="country" >
-  <xs:complexType>
-    <xs:sequence>
-      <xs:element name="id" type="xs:long"/>
-      <xs:element name="name" type="xs:string"/>
-      <xs:element name="cities" maxOccurs="unbounded">
-		  <xs:complexType>
-		    <xs:sequence>
-		      <xs:element name="city" maxOccurs="unbounded">
-				<xs:complexType>
-				  <xs:sequence>
-				    <xs:element name="id" type="xs:long"/>
-				    <xs:element name="name" type="xs:string"/>
-				    <xs:element name="id_country" type="xs:long"/>
-				    </xs:sequence>
-				  </xs:complexType>
-			    </xs:element>
-			  </xs:sequence>
-		  </xs:complexType>		
-	  </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-</xs:element>
+	<xs:element name="country">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="name" type="xs:string" />
+				<xs:element name="cities" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="city" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="name" type="xs:string" />
+										<xs:element name="id_country" type="xs:long" />
+									</xs:sequence>
+									<xs:attribute name="id" type="xs:long"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:long" />
+		</xs:complexType>
+	</xs:element>
 </xs:schema>
