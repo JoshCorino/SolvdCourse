@@ -5,17 +5,22 @@ import java.sql.Date;
 public class PassengerIdentification extends AbstractEntity{
 	private long idPassenger;
 	private long idIdentification;
-	private Date expirationDate;
+	private Date creationDate;
 	
 	public PassengerIdentification() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-	public PassengerIdentification(long id, long idPassenger, long idIdentification, Date expirationDate) {
+	public PassengerIdentification(long idPassenger,long idIdentification, Date date) {
+		super();
+		this.idIdentification=idIdentification;
+		this.idPassenger=idPassenger;
+		this.creationDate=date;
+	}
+	public PassengerIdentification(long id,long idPassenger,long idIdentification, Date date) {
 		super(id);
-		this.idPassenger = idPassenger;
-		this.idIdentification = idIdentification;
-		this.expirationDate = expirationDate;
+		this.idIdentification=idIdentification;
+		this.idPassenger=idPassenger;
+		this.creationDate=date;
 	}
 	public long getIdPassenger() {
 		return idPassenger;
@@ -29,11 +34,11 @@ public class PassengerIdentification extends AbstractEntity{
 	public void setIdIdentification(long idIdentification) {
 		this.idIdentification = idIdentification;
 	}
-	public Date getExpirationDate() {
-		return expirationDate;
+	public Date getCreationDate() {
+		return creationDate;
 	}
-	public void setExpirationDate(Date expirationDate) {
-		this.expirationDate = expirationDate;
+	public void setCreationDate(Date expirationDate) {
+		this.creationDate = expirationDate;
 	}
 	
 }

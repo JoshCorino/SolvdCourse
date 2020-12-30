@@ -1,6 +1,7 @@
 package com.solvd.projectAirport.services;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -13,89 +14,50 @@ public class Test {
 	
 	public static void main( String[] args ){
 		Logger log = LogManager.getLogger(PassengerDAO.class);
-		
-		log.info("Testing insert and select");
 
-		Passenger p = new Passenger(1, "Joshua", "Corino", null);
-		PassengerDAO pd = new PassengerDAO();
-		pd.save(p);
-		Passenger pg = pd.getById(1);
-		log.info("Passenger first name: "+pg.getFirstName());
-		
-		Country c = new Country(1, "Argentina", null);
-		CountryDAO cd = new CountryDAO();
-		cd.save(c);
-		Country cg = cd.getById(1);
-		log.info("Country name: "+cg.getName());
-		
+		Passenger p = new Passenger(1, "Joshua", "Corino", new ArrayList<Identification>());
+		Country c = new Country(1, "Argentina", new ArrayList<City>());
 		Identification i = new Identification(1, "Passport", "Passport from china", c);
-		IdentificationDAO id = new IdentificationDAO();
-		id.save(i);
-		Identification ig = id.getById(1);
-		log.info("Identification description: "+ig.getDescription());
-		
-		PassengerIdentification pi = new PassengerIdentification(1, 1, 1, new Date(0));
-		IPassengerIdentificationDAO pid = new PassengerIdentificationDAO();
-		pid.save(pi);
-		
+		PassengerIdentification pi = new PassengerIdentification( 1, 1, new Date(0));
 		City c1 = new City(0, "Buenos Aires",1);
 		City c2 = new City(0, "Mar del plata",1);
 		City c3 = new City(0, "Tandil",1);
-		CityDAO cityDAO = new CityDAO();
-		cityDAO.save(c1);
-		cityDAO.save(c2);
-		cityDAO.save(c3);
-		
 		EmployeeType et = new EmployeeType(1, "Driver", "Drive trucks");
-		EmployeeTypeDAO etDAO = new EmployeeTypeDAO();
-		etDAO.save(et);
-		
 		Employee empl = new Employee(1, "John", "Tyrion", "224242342",et);
-		EmployeeDAO emplDAO = new EmployeeDAO();
-		emplDAO.save(empl);
 		
-		Airline air = new Airline(1,"Luftansa","luftansa@gmail.com");
-		AirlineDAO airDAO = new AirlineDAO();
-		airDAO.save(air);
-		
-		Plane plane = new Plane(0, "747", 300, 5000, air);
-		PlaneDAO planeDAO = new PlaneDAO();
-		planeDAO.save(plane);
-		
+		i.setCountry(c);
+		p.addIdentification(i);
+		c.addCity(c1);
+		c.addCity(c2);
+		c.addCity(c3);
+		empl.setType(et);
+				
 		log.info("Testing services");
 		
+		CountryService cs = new CountryService();
+		cs.save(c);
+		Country fullCountry = cs.getById(1).get();
+		log.info("Country : "+fullCountry.toString()+" selected");
+		
 		PassengerService ps = new PassengerService();
-		Passenger fullPasenger = ps.getById(1);
+		ps.save(p);
+		Passenger fullPasenger = ps.getById(1).get();
 		log.info("Passanger : "+fullPasenger.toString()+" selected");
 
 		IdentificationService is = new IdentificationService();
-		Identification fullIdentification = is.getById(1);
+		is.save(i);
+		Identification fullIdentification = is.getById(1).get();
 		log.info("Identification : "+fullIdentification.toString()+" selected");
 		
 		
-		CountryService cs = new CountryService();
-		Country fullCountry = cs.getById(1);
-		log.info("Country : "+fullCountry.toString()+" selected");
 
 		EmployeeService emps = new EmployeeService();
-		Employee fullEmployee= emps.getById(1);
+		emps.save(empl);
+		Employee fullEmployee= emps.getById(1).get();
 		log.info("Employee : "+fullEmployee.toString()+" selected");
 		
-
+		log.info("Services test finished");
 		
-		log.info("Testing delete");
-		
-		pid.remove(1);
-		id.remove(1);
-		pd.remove(1);
-		cityDAO.remove(1);
-		cityDAO.remove(2);
-		cityDAO.remove(3);
-		emplDAO.remove(1);
-		etDAO.remove(1);
-		planeDAO.remove(1);
-		airDAO.remove(1);
-		cd.remove(1);	
 
     }
 

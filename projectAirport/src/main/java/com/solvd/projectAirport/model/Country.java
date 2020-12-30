@@ -45,5 +45,9 @@ public class Country extends AbstractEntity {
 	public void setCities(List<City> cities) {
 		this.cities = cities;
 	}
+	public void addCity(City c1) {
+		cities.add(c1);
+		
+	}
 	
 }

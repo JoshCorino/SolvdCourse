@@ -31,7 +31,7 @@ public class PassengerIdentificationDAO extends MySQLDAO implements IPassengerId
 			pre = con.prepareStatement(SAVE_PASSENGER_IDENTIFICATION, Statement.RETURN_GENERATED_KEYS);
 			pre.setLong(1,p.getIdPassenger());
 			pre.setLong(2,p.getIdIdentification());
-			pre.setDate(3,p.getExpirationDate());
+			pre.setDate(3,p.getCreationDate());
 			int rset = pre.executeUpdate();
 			if(rset==1)
 				log.info("PassengerIdentification saved");

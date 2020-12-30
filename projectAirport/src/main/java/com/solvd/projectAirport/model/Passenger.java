@@ -1,5 +1,6 @@
 package com.solvd.projectAirport.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Passenger extends AbstractEntity{
@@ -10,6 +11,7 @@ public class Passenger extends AbstractEntity{
 	
 	public Passenger() {
 		super();
+		identifications=new ArrayList<Identification>();
 	}
 
 	public Passenger(long id, String firstName, String lastName, List<Identification> identifications) {
@@ -60,6 +62,10 @@ public class Passenger extends AbstractEntity{
 	public void addIdentification(Identification e) {
 		identifications.add(e);
 		
+	}
+
+	public List<Identification> getIdentifications() {
+		return identifications;
 	}
 	
 }
