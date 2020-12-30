@@ -35,5 +35,9 @@ public class InmigrationLog extends AbstractEntity{
 	public void setFlight(Flight flight) {
 		this.flight = flight;
 	}
+	@Override
+	public String toString() {
+		return "InmigrationLog [date=" + date + ", passenger=" + passenger + ", flight=" + flight + "]";
+	}
 	
 }
