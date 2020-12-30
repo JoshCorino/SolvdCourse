@@ -26,9 +26,10 @@ public class IdentificationDAO extends MySQLDAO implements IIdentificationDAO{
 	@Override
 	public Identification save(Identification i) {
 		Connection con=null;
+		PreparedStatement pre =null;
         try {
 			con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(SAVE_IDENTIFICATION, Statement.RETURN_GENERATED_KEYS);
+			pre = con.prepareStatement(SAVE_IDENTIFICATION, Statement.RETURN_GENERATED_KEYS);
 			pre.setString(1,i.getType());
 			pre.setString(2,i.getDescription());
 			pre.setLong(3,i.getCountry().getId());
@@ -45,7 +46,12 @@ public class IdentificationDAO extends MySQLDAO implements IIdentificationDAO{
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally {
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 		}
         return i;
 	}
@@ -54,11 +60,13 @@ public class IdentificationDAO extends MySQLDAO implements IIdentificationDAO{
 	public Identification getById(long id) {
 		Identification i =null;
 		Connection con = null ;
+		PreparedStatement pre =null;
+		ResultSet rset =null;
         try {
-			 con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(GET_IDENTIFICATION);
+			con = cp.getConnection();
+			pre = con.prepareStatement(GET_IDENTIFICATION);
 			pre.setLong(1,id);
-			ResultSet rset = pre.executeQuery();
+			rset = pre.executeQuery();
 			if (rset.next()) i= new Identification(rset.getLong("id"),rset.getString("type"),rset.getString("description"),null);
 			
 		} catch (SQLException e) {
@@ -66,7 +74,13 @@ public class IdentificationDAO extends MySQLDAO implements IIdentificationDAO{
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally{
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				rset.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 		}
         return i;
 	}
@@ -74,9 +88,10 @@ public class IdentificationDAO extends MySQLDAO implements IIdentificationDAO{
 	@Override
 	public void remove(long id) {
 		Connection con = null ;
+		PreparedStatement pre  = null ;
         try {
-			 con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(REMOVE_IDENTIFICATION);
+        	con = cp.getConnection();
+			pre = con.prepareStatement(REMOVE_IDENTIFICATION);
 			pre.setLong(1,id);
 			int rset = pre.executeUpdate();
 			if(rset!=0)
@@ -87,7 +102,12 @@ public class IdentificationDAO extends MySQLDAO implements IIdentificationDAO{
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally{
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 		}
 		
 	}
@@ -96,11 +116,13 @@ public class IdentificationDAO extends MySQLDAO implements IIdentificationDAO{
 	public long getCountryIdById(long id) {
 		long l =0;
 		Connection con = null ;
+		PreparedStatement pre = null ;
+		ResultSet rset = null ;
         try {
 			con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(GET_COUNTRY_BY_IDENTIFICATION_ID);
+			pre = con.prepareStatement(GET_COUNTRY_BY_IDENTIFICATION_ID);
 			pre.setLong(1,id);
-			ResultSet rset = pre.executeQuery();
+			rset = pre.executeQuery();
 			if (rset.next()) l= rset.getLong("id_country");
 			
 		} catch (SQLException e) {
@@ -108,7 +130,12 @@ public class IdentificationDAO extends MySQLDAO implements IIdentificationDAO{
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally{
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 		}
         return l;
 	}

@@ -25,9 +25,10 @@ public class PassengerIdentificationDAO extends MySQLDAO implements IPassengerId
 	@Override
 	public PassengerIdentification save(PassengerIdentification p) {
 		Connection con = null;
+		PreparedStatement pre  = null;
         try {
-			 con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(SAVE_PASSENGER_IDENTIFICATION, Statement.RETURN_GENERATED_KEYS);
+			con = cp.getConnection();
+			pre = con.prepareStatement(SAVE_PASSENGER_IDENTIFICATION, Statement.RETURN_GENERATED_KEYS);
 			pre.setLong(1,p.getIdPassenger());
 			pre.setLong(2,p.getIdIdentification());
 			pre.setDate(3,p.getExpirationDate());
@@ -44,7 +45,12 @@ public class PassengerIdentificationDAO extends MySQLDAO implements IPassengerId
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally{
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 		}
         return p;
 	}
@@ -53,18 +59,25 @@ public class PassengerIdentificationDAO extends MySQLDAO implements IPassengerId
 	public PassengerIdentification getById(long id) {
 		PassengerIdentification pi = null;
 		Connection con = null;
+		PreparedStatement pre  = null;
+		ResultSet rset = null;
 		try {
 			con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(GET_PASSENGER_IDENTIFICATION);
+			pre = con.prepareStatement(GET_PASSENGER_IDENTIFICATION);
 			pre.setLong(1,id);
-			ResultSet rset = pre.executeQuery();
+			rset = pre.executeQuery();
 			if (rset.next()) pi= new PassengerIdentification(rset.getLong("id"),rset.getLong("id_passenger"),rset.getLong("id_identification"),rset.getDate("expiration_date"));
         } catch (SQLException e) {
 			log.error("SQL Exception, can not get",e);
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally{
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 		}
         return pi;
 	}
@@ -72,9 +85,10 @@ public class PassengerIdentificationDAO extends MySQLDAO implements IPassengerId
 	@Override
 	public void remove(long id) {
 		Connection con = null;
+		PreparedStatement pre = null;
         try {
-			 con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(REMOVE_PASSENGER_IDENTIFICATION);
+			con = cp.getConnection();
+			pre = con.prepareStatement(REMOVE_PASSENGER_IDENTIFICATION);
 			pre.setLong(1,id);
 			int rset = pre.executeUpdate();
 			if(rset!=0)
@@ -84,7 +98,12 @@ public class PassengerIdentificationDAO extends MySQLDAO implements IPassengerId
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally{
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 		}
 		
 	}
@@ -93,11 +112,13 @@ public class PassengerIdentificationDAO extends MySQLDAO implements IPassengerId
 	public ArrayList<Long> getIdentificationsFromPassengerId(long id) {
 		ArrayList<Long> result = new ArrayList<Long>();
 		Connection con = null;
+		PreparedStatement pre = null;
+		ResultSet rset = null;
         try {
 			con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(GET_IDENTIFICATIONS_IDS_FROM_PASSENGER_ID);
+			pre = con.prepareStatement(GET_IDENTIFICATIONS_IDS_FROM_PASSENGER_ID);
 			pre.setLong(1,id);
-			ResultSet rset = pre.executeQuery();
+			rset = pre.executeQuery();
 			while (rset.next()) {
 				  result.add(rset.getLong("id_identification"));
 			}
@@ -107,7 +128,13 @@ public class PassengerIdentificationDAO extends MySQLDAO implements IPassengerId
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally{
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				rset.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 		}
         return result;
 

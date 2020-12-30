@@ -25,9 +25,11 @@ public class EmployeeDAO extends MySQLDAO implements IEmployeeDAO{
 	@Override
 	public Employee save(Employee e) {
 		Connection con=null;
+		PreparedStatement pre= null;
+
         try {
 			con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(SAVE_EMPLOYEE, Statement.RETURN_GENERATED_KEYS);
+			pre = con.prepareStatement(SAVE_EMPLOYEE, Statement.RETURN_GENERATED_KEYS);
 			pre.setString(1,e.getFirstName());
 			pre.setString(2,e.getLastName());
 			pre.setString(3,e.getCellphone());
@@ -45,7 +47,12 @@ public class EmployeeDAO extends MySQLDAO implements IEmployeeDAO{
 		} catch (InterruptedException ex) {
 			log.error("Cant get a connection",ex);
 		}finally {
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e1) {
+				log.error("Cant close",e1);
+			}		
 		}
         return e;
 	}
@@ -54,11 +61,13 @@ public class EmployeeDAO extends MySQLDAO implements IEmployeeDAO{
 	public Employee getById(long id) {
 		Employee e =null;
 		Connection con = null ;
+		PreparedStatement pre= null;
+		ResultSet rset =null;
         try {
-			 con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(GET_EMPLOYEE);
+			con = cp.getConnection();
+			pre = con.prepareStatement(GET_EMPLOYEE);
 			pre.setLong(1,id);
-			ResultSet rset = pre.executeQuery();
+			rset = pre.executeQuery();
 			if (rset.next()) e= new Employee(rset.getLong("id"),rset.getString("first_name"),rset.getString("last_name"),rset.getString("cellphone"),null);
 			
 		} catch (SQLException ex) {
@@ -66,17 +75,24 @@ public class EmployeeDAO extends MySQLDAO implements IEmployeeDAO{
 		} catch (InterruptedException ex) {
 			log.error("Cant get a connection",ex);
 		}finally{
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				rset.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e1) {
+				log.error("Cant close",e1);
+			}		
 		}
         return e;
 	}
 
 	@Override
 	public void remove(long id) {
-		Connection con = null ;
+		Connection con = null;
+		PreparedStatement pre= null;
         try {
-			 con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(REMOVE_EMPLOYEE);
+			con = cp.getConnection();
+			pre = con.prepareStatement(REMOVE_EMPLOYEE);
 			pre.setLong(1,id);
 			int rset = pre.executeUpdate();
 			if(rset!=0)
@@ -87,7 +103,12 @@ public class EmployeeDAO extends MySQLDAO implements IEmployeeDAO{
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally{
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 		}
 		
 	}
@@ -96,11 +117,13 @@ public class EmployeeDAO extends MySQLDAO implements IEmployeeDAO{
 	public long getTypeId(long id) {
 		long l =0;
 		Connection con = null ;
+		PreparedStatement pre= null;
+		ResultSet rset=null;
         try {
 			con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(GET_TYPE_ID_EMPLOYEE);
+			pre = con.prepareStatement(GET_TYPE_ID_EMPLOYEE);
 			pre.setLong(1,id);
-			ResultSet rset = pre.executeQuery();
+			rset = pre.executeQuery();
 			if (rset.next()) l= rset.getLong("id_type");
 			
 		} catch (SQLException ex) {
@@ -108,7 +131,13 @@ public class EmployeeDAO extends MySQLDAO implements IEmployeeDAO{
 		} catch (InterruptedException ex) {
 			log.error("Cant get a connection",ex);
 		}finally{
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				rset.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 		}
         return l;
 	}

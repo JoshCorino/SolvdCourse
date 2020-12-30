@@ -24,9 +24,10 @@ public class CountryDAO extends MySQLDAO implements ICountryDAO{
 	@Override
 	public Country save(Country c) {
 		Connection con = null;
+		PreparedStatement pre= null;		
         try {
 			con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(SAVE_COUNTRY, Statement.RETURN_GENERATED_KEYS);
+			pre = con.prepareStatement(SAVE_COUNTRY, Statement.RETURN_GENERATED_KEYS);
 			pre.setString(1,c.getName());
 			int rset = pre.executeUpdate();
 			if(rset==1)
@@ -41,7 +42,12 @@ public class CountryDAO extends MySQLDAO implements ICountryDAO{
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally {
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 		}
         return c;
 	}
@@ -49,12 +55,14 @@ public class CountryDAO extends MySQLDAO implements ICountryDAO{
 	@Override
 	public Country getById(long id) {
         Country c = null;
-        Connection con = null;
+		Connection con = null;
+		PreparedStatement pre= null;
+		ResultSet rset=null;
 		try {
 			con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(GET_COUNTRY);
+			pre = con.prepareStatement(GET_COUNTRY);
 			pre.setLong(1,id);
-			ResultSet rset = pre.executeQuery();
+			rset = pre.executeQuery();
 			if (rset.next()) c= new Country(rset.getLong("id"),rset.getString("name"),new ArrayList<City>());
 			
 
@@ -63,7 +71,13 @@ public class CountryDAO extends MySQLDAO implements ICountryDAO{
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally {
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				rset.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 		}
         return c;
 	}
@@ -71,9 +85,11 @@ public class CountryDAO extends MySQLDAO implements ICountryDAO{
 	@Override
 	public void remove(long id) {
         Connection con = null;
+		PreparedStatement pre= null;
+
         try {
 			con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(REMOVE_COUNTRY);
+			pre = con.prepareStatement(REMOVE_COUNTRY);
 			pre.setLong(1,id);
 			int rset = pre.executeUpdate();
 			if(rset!=0)
@@ -84,7 +100,12 @@ public class CountryDAO extends MySQLDAO implements ICountryDAO{
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally {
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 
 		}
 		

@@ -24,9 +24,10 @@ public class PassengerDAO extends MySQLDAO implements IPassengerDAO{
 	@Override
 	public Passenger save(Passenger p) {
 		Connection con = null;
+		PreparedStatement pre = null;
         try {
 			con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(SAVE_PASSENGER, Statement.RETURN_GENERATED_KEYS);
+			pre = con.prepareStatement(SAVE_PASSENGER, Statement.RETURN_GENERATED_KEYS);
 			pre.setString(1,p.getFirstName());
 			pre.setString(2,p.getLastName());
 			int rset = pre.executeUpdate();
@@ -42,7 +43,12 @@ public class PassengerDAO extends MySQLDAO implements IPassengerDAO{
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally{
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 		}
         return p;
 	}
@@ -51,11 +57,13 @@ public class PassengerDAO extends MySQLDAO implements IPassengerDAO{
 	public Passenger getById(long id) {
 		Passenger p = null;
 		Connection con = null;
+		PreparedStatement pre = null;
+		ResultSet rset = null;
         try {
 			con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(GET_PASSENGER);
+			pre = con.prepareStatement(GET_PASSENGER);
 			pre.setLong(1,id);
-			ResultSet rset = pre.executeQuery();
+			rset = pre.executeQuery();
 			if (rset.next())
 				p= new Passenger(rset.getLong("id"),rset.getString("first_name"),rset.getString("last_name"),new ArrayList<Identification>());
 					
@@ -64,7 +72,13 @@ public class PassengerDAO extends MySQLDAO implements IPassengerDAO{
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally{
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				rset.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 		}
         return p;
 	}
@@ -72,9 +86,11 @@ public class PassengerDAO extends MySQLDAO implements IPassengerDAO{
 	@Override
 	public void remove(long id) {
 		Connection con = null;
+		PreparedStatement pre = null;
+
         try {
 			con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(REMOVE_PASSENGER);
+			pre = con.prepareStatement(REMOVE_PASSENGER);
 			pre.setLong(1,id);
 			int rset = pre.executeUpdate();
 			if(rset!=0)
@@ -84,7 +100,12 @@ public class PassengerDAO extends MySQLDAO implements IPassengerDAO{
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally{
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 		}
 		
 	}

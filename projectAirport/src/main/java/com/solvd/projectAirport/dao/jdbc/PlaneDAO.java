@@ -25,9 +25,10 @@ public class PlaneDAO extends MySQLDAO implements IPlaneDAO{
 	@Override
 	public Plane save(Plane p) {
 		Connection con = null;
+		PreparedStatement pre = null;
         try {
 			con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(SAVE_PLANE, Statement.RETURN_GENERATED_KEYS);
+			pre = con.prepareStatement(SAVE_PLANE, Statement.RETURN_GENERATED_KEYS);
 			pre.setString(1,p.getModel());
 			pre.setInt(2,p.getPassengersCapacity());
 			pre.setDouble(3,p.getFuelCapacity());
@@ -45,7 +46,12 @@ public class PlaneDAO extends MySQLDAO implements IPlaneDAO{
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally{
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 		}
         return p;
 	}
@@ -54,11 +60,13 @@ public class PlaneDAO extends MySQLDAO implements IPlaneDAO{
 	public Plane getById(long id) {
 		Plane p = null;
 		Connection con = null;
+		PreparedStatement pre = null;
+		ResultSet rset = null;
         try {
 			con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(GET_PLANE);
+			pre = con.prepareStatement(GET_PLANE);
 			pre.setLong(1,id);
-			ResultSet rset = pre.executeQuery();
+			rset = pre.executeQuery();
 			if (rset.next())
 				p= new Plane(rset.getLong("id"),rset.getString("model"),rset.getInt("passengers_capacity"),rset.getDouble("fuel_capacity"),null);
 					
@@ -67,7 +75,13 @@ public class PlaneDAO extends MySQLDAO implements IPlaneDAO{
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally{
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				rset.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 		}
         return p;
 	}
@@ -75,9 +89,10 @@ public class PlaneDAO extends MySQLDAO implements IPlaneDAO{
 	@Override
 	public void remove(long id) {
 		Connection con = null;
+		PreparedStatement pre = null;
         try {
 			con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(REMOVE_PLANE);
+			pre = con.prepareStatement(REMOVE_PLANE);
 			pre.setLong(1,id);
 			int rset = pre.executeUpdate();
 			if(rset!=0)
@@ -87,7 +102,12 @@ public class PlaneDAO extends MySQLDAO implements IPlaneDAO{
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally{
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 		}
 		
 	}
@@ -96,11 +116,13 @@ public class PlaneDAO extends MySQLDAO implements IPlaneDAO{
 	public ArrayList<Plane> getPlanesByAirlineId(long id) {
 		ArrayList<Plane> result = new ArrayList<Plane>();
 		Connection con = null;
+		PreparedStatement pre = null;
+		ResultSet rset = null;
         try {
 			con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(GET_PLANES_BY_AIRLINE_ID);
+			pre = con.prepareStatement(GET_PLANES_BY_AIRLINE_ID);
 			pre.setLong(1,id);
-			ResultSet rset = pre.executeQuery();
+			rset = pre.executeQuery();
 			while (rset.next()) {
 				Plane p = new Plane();
 				p.setFuelCapacity(rset.getDouble("fuel_capacity"));
@@ -115,7 +137,13 @@ public class PlaneDAO extends MySQLDAO implements IPlaneDAO{
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally{
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				rset.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 		}
         return result;
 	}

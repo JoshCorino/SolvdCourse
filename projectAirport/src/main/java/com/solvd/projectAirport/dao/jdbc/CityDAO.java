@@ -25,9 +25,10 @@ public class CityDAO extends MySQLDAO implements ICityDAO{
 	@Override
 	public City save(City c) {
 		Connection con = null;
-        try {
+		PreparedStatement pre= null;
+		try {
 			con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(SAVE_CITY, Statement.RETURN_GENERATED_KEYS);
+			pre = con.prepareStatement(SAVE_CITY, Statement.RETURN_GENERATED_KEYS);
 			pre.setString(1,c.getName());
 			pre.setLong(2,c.getIdCountry());
 			int rset = pre.executeUpdate();
@@ -43,7 +44,12 @@ public class CityDAO extends MySQLDAO implements ICityDAO{
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally{
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 		}
         return c;
 	}
@@ -52,18 +58,25 @@ public class CityDAO extends MySQLDAO implements ICityDAO{
 	public City getById(long id) {
 		City c = null;
 		Connection con = null;
+		PreparedStatement pre= null;
+		ResultSet rset=null;
 		try {
 			con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(GET_CITY);
+			pre = con.prepareStatement(GET_CITY);
 			pre.setLong(1,id);
-			ResultSet rset = pre.executeQuery();
+			rset = pre.executeQuery();
 			if (rset.next()) c= new City(rset.getLong("id"),rset.getString("name"),rset.getLong("id_country"));
         } catch (SQLException e) {
 			log.error("SQL Exception, can not get",e);
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally{
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 		}
         return c;
 	}
@@ -71,9 +84,10 @@ public class CityDAO extends MySQLDAO implements ICityDAO{
 	@Override
 	public void remove(long id) {
 		Connection con = null;
+		PreparedStatement pre= null;
         try {
-			 con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(REMOVE_CITY);
+			con = cp.getConnection();
+			pre = con.prepareStatement(REMOVE_CITY);
 			pre.setLong(1,id);
 			int rset = pre.executeUpdate();
 			if(rset!=0)
@@ -83,7 +97,12 @@ public class CityDAO extends MySQLDAO implements ICityDAO{
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally{
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 		}
 		
 	}
@@ -92,11 +111,13 @@ public class CityDAO extends MySQLDAO implements ICityDAO{
 	public ArrayList<City> getCitiesByCountryId(long id) {
 		ArrayList<City> result = new ArrayList<City>();
 		Connection con = null;
+		PreparedStatement pre= null;
+		ResultSet rset=null;
         try {
 			con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(GET_CITIES_FROM_COUNTRY_ID);
+			pre = con.prepareStatement(GET_CITIES_FROM_COUNTRY_ID);
 			pre.setLong(1,id);
-			ResultSet rset = pre.executeQuery();
+			rset = pre.executeQuery();
 			while (rset.next()) {
 				  result.add(new City(rset.getLong("id"),rset.getString("name"),rset.getLong("id_country")));
 			}
@@ -106,7 +127,13 @@ public class CityDAO extends MySQLDAO implements ICityDAO{
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally{
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				rset.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 		}
         return result;
 

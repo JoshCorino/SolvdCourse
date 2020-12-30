@@ -22,16 +22,18 @@ public class AirlineDAO extends MySQLDAO implements IAirlineDAO{
 	@Override
 	public Airline save(Airline a) {
 		Connection con = null;
+		PreparedStatement pre= null;
+		ResultSet rs= null;
         try {
 			con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(SAVE_AIRLINE, Statement.RETURN_GENERATED_KEYS);
+			pre = con.prepareStatement(SAVE_AIRLINE, Statement.RETURN_GENERATED_KEYS);
 			pre.setString(1,a.getName());
 			pre.setString(2,a.getContact());
 
 			int rset = pre.executeUpdate();
 			if(rset==1)
 				log.info("Airline saved");
-            ResultSet rs = pre.getGeneratedKeys();
+            rs = pre.getGeneratedKeys();
             if(rs.next())
             {
                 a.setId(rs.getInt(1));
@@ -42,7 +44,13 @@ public class AirlineDAO extends MySQLDAO implements IAirlineDAO{
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally{
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				rs.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}			
 		}
         return a;
 	}
@@ -51,11 +59,13 @@ public class AirlineDAO extends MySQLDAO implements IAirlineDAO{
 	public Airline getById(long id) {
 		Airline a = null;
 		Connection con = null;
+		PreparedStatement pre= null;
+		ResultSet rset= null;
         try {
 			con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(GET_AIRLINE);
+			pre = con.prepareStatement(GET_AIRLINE);
 			pre.setLong(1,id);
-			ResultSet rset = pre.executeQuery();
+			rset = pre.executeQuery();
 			if (rset.next())
 				a= new Airline(rset.getLong("id"),rset.getString("name"),rset.getString("contact"));
 					
@@ -64,7 +74,13 @@ public class AirlineDAO extends MySQLDAO implements IAirlineDAO{
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally{
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				rset.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 		}
         return a;
 	}
@@ -72,9 +88,10 @@ public class AirlineDAO extends MySQLDAO implements IAirlineDAO{
 	@Override
 	public void remove(long id) {
 		Connection con = null;
+		PreparedStatement pre= null;		
         try {
 			con = cp.getConnection();
-			PreparedStatement pre = con.prepareStatement(REMOVE_AIRLINE);
+			pre = con.prepareStatement(REMOVE_AIRLINE);
 			pre.setLong(1,id);
 			int rset = pre.executeUpdate();
 			if(rset!=0)
@@ -84,7 +101,12 @@ public class AirlineDAO extends MySQLDAO implements IAirlineDAO{
 		} catch (InterruptedException e) {
 			log.error("Cant get a connection",e);
 		}finally{
-			cp.releaseConnection(con);
+			try {
+				pre.close();
+				cp.releaseConnection(con);
+			} catch (SQLException e) {
+				log.error("Cant close",e);
+			}		
 		}
 		
 	}
