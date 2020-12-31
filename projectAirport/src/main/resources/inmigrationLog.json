@@ -1,6 +1,6 @@
 {
   "id" : 1,
-  "date" : "2020-12-30",
+  "date" : "2020-12-31",
   "passenger" : {
     "id" : 1,
     "firstName" : "Joshua",
@@ -10,18 +10,18 @@
       "type" : "Passport",
       "description" : "passport passport",
       "country" : {
-        "id" : 0,
+        "id" : 1,
         "name" : "Argentina",
         "cities" : [ {
-          "id" : 0,
+          "id" : 1,
           "name" : "Mar del plata",
           "idCountry" : 1
         }, {
-          "id" : 0,
+          "id" : 2,
           "name" : "Necochea",
           "idCountry" : 1
         }, {
-          "id" : 0,
+          "id" : 3,
           "name" : "Tandil",
           "idCountry" : 1
         } ]
@@ -35,6 +35,6 @@
     "idPilot2" : 1,
     "idOrginGate" : 1,
     "idDestinyGate" : 1,
-    "arriveDate" : "2020-12-30"
+    "arriveDate" : "2020-12-31"
   }
 }

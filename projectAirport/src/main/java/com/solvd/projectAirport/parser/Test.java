@@ -28,20 +28,20 @@ public class Test {
 	 public static void main(String[] args) {
 		String path = "src/main/resources/demo.xml";
 		 
-		//DOM section
+		//DOM section with attribute
 		log.info("Getting data with DOM");
 	 	DomParser dp =new DomParser();
 		List<Country> countries = dp.getCountriesWithCities(path);
 		log.info(countries.get(0).toString());
 		 
-		//Jaxb section
+		//Jaxb section with attribute
 		log.info("Getting data with Jaxb");    
 		JaxbParserCountry pc = new JaxbParserCountry();
 		Country c = pc.getCountry(path);
 		log.info(c.toString());
 		
 		
-		//JSON section
+		//JSON section complex example with date
 		
 		log.info("Saving json using Jackson");
 		ObjectMapper mapper = new ObjectMapper();
@@ -49,7 +49,7 @@ public class Test {
 	    mapper.registerModule(new JavaTimeModule());
 	    mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 		
-		//Complex example with date
+
 		Passenger p = new Passenger(1,"Joshua","Corino",new ArrayList<Identification>());
 		Identification i = new Identification(1,"Passport","passport passport",c);
 		p.addIdentification(i);
