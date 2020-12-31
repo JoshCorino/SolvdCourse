@@ -16,13 +16,13 @@ public class HomePageTest extends AbstractTest {
     private final String CAR_CONFIGURATOR_EXPECTED_URL= "https://www.lamborghini.com/en-en/";
     private final String DEALER_LOCATOR_EXPECTED_URL= "https://www.lamborghini.com/en-en/dealer-locator";
     private final String SEE_NEWS_EXPECTED_URL= "https://www.lamborghini.com/en-en/news";
-    
-    private HomePage hp = new HomePage(getDriver());
+      
     
     @Test
 	@MethodOwner(owner ="Joshua Corino")
 	public void galleryTagText() {
-
+    	
+    	HomePage hp = new HomePage(getDriver());
 		hp.open();
 		String text = hp.getGalleryTag().getText();
 		Assert.assertEquals(text, GALLERY_TAG_EXPECTED_TEXT);
@@ -32,7 +32,8 @@ public class HomePageTest extends AbstractTest {
     @Test
 	@MethodOwner(owner ="Joshua Corino")
 	public void carConfiguratorButton() {
-
+    	
+    	HomePage hp = new HomePage(getDriver());
 		hp.open();
 		ExtendedWebElement button = hp.getCarConfiguratorButton();
 		button.click(0);
@@ -43,7 +44,8 @@ public class HomePageTest extends AbstractTest {
     @Test
 	@MethodOwner(owner ="Joshua Corino")
 	public void dealerLocatorButton() {
-
+    	
+    	HomePage hp = new HomePage(getDriver());
 		hp.open();
 		ExtendedWebElement button = hp.getDealerLocatorButton();
 		button.click(0);
@@ -54,7 +56,8 @@ public class HomePageTest extends AbstractTest {
     @Test
 	@MethodOwner(owner ="Joshua Corino")
 	public void seeAllNewsButton() {
-
+    	
+    	HomePage hp = new HomePage(getDriver());
 		hp.open();
 		ExtendedWebElement button = hp.getSeeAllNewsButton();
 		button.click(0);
@@ -65,7 +68,8 @@ public class HomePageTest extends AbstractTest {
     @Test
 	@MethodOwner(owner ="Joshua Corino")
 	public void testDealerLocatorButton() {
-
+    	
+    	HomePage hp = new HomePage(getDriver());
 		hp.open();
 		ExtendedWebElement button = hp.getDealerLocatorButton();
 		button.click(0);
@@ -77,7 +81,8 @@ public class HomePageTest extends AbstractTest {
     @Test
 	@MethodOwner(owner ="Joshua Corino")
 	public void testEmissionsBannerText() {
-
+    	
+    	HomePage hp = new HomePage(getDriver());
 		hp.open();
 		String text = hp.getEmissionsBanner().getText();
 		Assert.assertEquals(text, EMISSIONS_BANNER_EXPECTED_TEXT);
