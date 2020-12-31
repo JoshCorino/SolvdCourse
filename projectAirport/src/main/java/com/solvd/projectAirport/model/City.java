@@ -24,7 +24,7 @@ public class City extends AbstractEntity {
 
 	@Override
 	public String toString() {
-		return "City [name=" + name + "]";
+		return "City [name=" + name +", id=" +id +"]";
 	}
 
 	public String getName() {
