@@ -50,8 +50,35 @@ public class ModelsPage extends LamborghiniAbstractPage{
     public ModelsPage(WebDriver driver) {
 		super(driver);
 	}
-
-
+    
+	public String getAventadorText() {
+		return aventadorText.getText();
+	}
+	
+	public String getHuracanText() {
+		return huracanText.getText();
+	}
+	
+	public String getUrusText() {
+		return urusText.getText();
+	}
+	
+	public String getLimitedSeriesText() {
+		return limitedSeriesText.getText();
+	}
+	
+	public String getConceptText() {
+		return conceptText.getText();
+	}
+    
+	public void clickCompanyButton(long i) {
+		companyButton.click(i);
+	}
+	
+	public void clickAdPersonamButton(long i) {
+		adPersonamButton.click(i);
+	}
+	
     
     
 }

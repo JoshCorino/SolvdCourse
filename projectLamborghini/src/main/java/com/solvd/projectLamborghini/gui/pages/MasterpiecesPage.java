@@ -29,5 +29,19 @@ public class MasterpiecesPage extends LamborghiniAbstractPage{
 		super(driver);
 	}
 
+	public void clickHomeButton(long i) {
+		homeButton.click(i);
+	}
 	
+	public void clickBrandButton(long i) {
+		brandButton.click(i);
+	}
+	
+	public String getSelectedYearText() {
+		return selectedYear.getText();
+	}
+	
+	public String getTimelineText() {
+		return timeLine.getText();
+	}
 }

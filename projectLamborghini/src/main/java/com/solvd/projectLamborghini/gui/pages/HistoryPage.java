@@ -30,6 +30,16 @@ public class HistoryPage extends LamborghiniAbstractPage{
 		super(driver);
 	}
 
+	public String getVerticalTimelineText() {
+		return verticalTimeLine.getText();
+	}	
+	
+	public String getHorizontalTimelineText() {
+		return horizontalTimeLine.getText();
+	}	
+	public String getMainText() {
+		return mainText.getText();
+	}	
 
 
 	

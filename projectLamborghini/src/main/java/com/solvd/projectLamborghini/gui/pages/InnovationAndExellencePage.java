@@ -33,6 +33,31 @@ public class InnovationAndExellencePage extends LamborghiniAbstractPage{
 		super(driver);
 	}
 
+	public String getTerzoMilenioText() {
+		return terzoMilenioText.getText();
+	}
 
+	public void clickTerzoMilenioButton(long i) {
+		terzoMilenioButton.click(i);
+	}
 	
+	public void clickFutureCarsButton(long i) {
+		futureCarsButton.click(i);
+	}
+	
+	public String getForgedCompositesText() {
+		return forgedCompositesText.getText();
+	}
+
+	public void clickForgedCompositesButton(long i) {
+		forgedCompositesButton.click(i);
+	}
+	
+	public String getCarbonFiberText() {
+		return carbonFiberText.getText();
+	}
+
+	public void clickCarbonFiberButton(long i) {
+		carbonFiberButton.click(i);
+	}
 }

@@ -27,4 +27,19 @@ public class MuseumPage extends LamborghiniAbstractPage{
 		super(driver);
 	}
 	
+	public String getInformationText() {
+		return information.getText();
+	}
+    
+	public void clickPlaneButton(long i) {
+		planeButton.click(i);
+	}
+	
+	public void clickCarButton(long i) {
+		carButton.click(i);
+	}
+	
+	public void clickBusButton(long i) {
+		busButton.click(i);
+	}
 }

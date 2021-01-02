@@ -19,6 +19,14 @@ public class LoungePage extends LamborghiniAbstractPage{
 	public LoungePage(WebDriver driver) {
 		super(driver);
 	}
-
+	public String getTitleText() {
+		return title.getText();
+	}
+	public String getMainTextText() {
+		return mainText.getText();
+	}
+	public String getSecondaryText() {
+		return secondaryText.getText();
+	}
 	
 }

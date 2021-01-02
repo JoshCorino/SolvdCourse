@@ -24,7 +24,13 @@ public class DealerLocatorPage extends LamborghiniAbstractPage{
 	public DealerLocatorPage(WebDriver driver) {
 		super(driver);
 	}
+	
+	public String getDealerTypesText() {
+		return dealerTypes.getText();
+	}
 
-
+	public String getResultsText() {
+		return results.getText();
+	}
 
 }

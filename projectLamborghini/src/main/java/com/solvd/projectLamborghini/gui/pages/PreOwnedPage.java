@@ -20,6 +20,15 @@ public class PreOwnedPage extends LamborghiniAbstractPage{
 	public PreOwnedPage(WebDriver driver) {
 		super(driver);
 	}
+	public String getMainText() {
+		return mainText.getText();
+	}
+	public String getDescriptionText() {
+		return descriptionText.getText();
+	}
+	public String getdisclaimerText() {
+		return disclaimerText.getText();
+	}
 
 	
 

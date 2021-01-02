@@ -42,6 +42,44 @@ public class OwnershipPage extends LamborghiniAbstractPage{
 		super(driver);
 	}
 
-
+	public String getPoloText() {
+		return poloText.getText();
+	}
+    
+	public void clickPoloButton(long i) {
+		poloButton.click(i);
+	}
+	
+	public String getAccesoriesText() {
+		return accesoriesText.getText();
+	}
+    
+	public void clickAccesoriesButton(long i) {
+		accesoriesButton.click(i);
+	}
+	
+	public void clickServiceLocatorButton(long i) {
+		serviceLocatorButton.click(i);
+	}
+	
+	public void clickSparePartsButton(long i) {
+		sparePartsButton.click(i);
+	}
+	
+	public void clickOriginalAccesoriesButton(long i) {
+		originalAccesoriesButton.click(i);
+	}
+	
+	public void clickFinancialServiceButton(long i) {
+		financialServiceButton.click(i);
+	}
+	
+	public void clickModelsButton(long i) {
+		modelsButton.click(i);
+	}
+	
+	public void clickMuseumButton(long i) {
+		museumButton.click(i);
+	}
 	
 }

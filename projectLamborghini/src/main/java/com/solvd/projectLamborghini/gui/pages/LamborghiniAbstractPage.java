@@ -31,4 +31,8 @@ public abstract class LamborghiniAbstractPage extends AbstractPage{
 		return footerMenu;
 	}
 
+	public DisclaimerCookie getDisclaimerCookie() {
+		return disclaimerCookie;
+	}
+
 }

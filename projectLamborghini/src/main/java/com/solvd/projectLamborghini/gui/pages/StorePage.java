@@ -25,7 +25,19 @@ public class StorePage extends LamborghiniAbstractPage{
 		super(driver);
 	}
 
-
+	public String getStoreDataText() {
+		return storeData.getText();
+	}
+	
+	public void clickGoToStoreButton(long i) {
+		goToStoreButton.click(i);
+	}
+	public void clickCompaniesButton(long i) {
+		companiesButton.click(i);
+	}
+	public void clickModelsButton(long i) {
+		modelsButton.click(i);
+	}
 	
 
 }

@@ -32,7 +32,32 @@ public class PeoplePage extends LamborghiniAbstractPage{
 	public PeoplePage(WebDriver driver) {
 		super(driver);
 	}
+	
+	public String getMainText() {
+		return mainText.getText();
+	}
+    
+	public String getFerruccioText() {
+		return ferruccioText.getText();
+	}
+	
+	public void clickFerruccioButton(long i) {
+		ferruccioButton.click(i);
+	}
 
-
-
+	public String getTalentText() {
+		return talentText.getText();
+	}
+	
+	public void clickStoreButton(long i) {
+		storeButton.click(i);
+	}
+	
+	public void clickAccesoriesButton(long i) {
+		accesoriesButton.click(i);
+	}
+	
+	public void clickModelsButton(long i) {
+		modelsButton.click(i);
+	}
 }
