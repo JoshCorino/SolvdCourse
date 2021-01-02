@@ -22,4 +22,15 @@ public class DisclaimerCookie extends AbstractUIObject{
 		super(driver, searchContext);
 	}
 
+	public String getTermsText(){
+		return termsText.getText();
+	}
+	
+	public void clickAgreeButton(long timeOut) {
+		agreeButton.click(timeOut);
+	}
+	
+	public void clickCookiesButton(long timeOut) {
+		cookiesButton.click(timeOut);
+	}
 }

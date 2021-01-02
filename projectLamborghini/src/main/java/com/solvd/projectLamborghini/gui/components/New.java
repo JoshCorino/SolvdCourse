@@ -24,5 +24,16 @@ public class New extends AbstractUIObject{
 	public New(WebDriver driver, SearchContext searchContext) {
 		super(driver, searchContext);
 	}
+	
+	public String getTitle(){
+		return date.getText();
+	}
+	
+	public String getDateText(){
+		return date.getText();
+	}
 
+	public void clickReadMoreButton(long timeOut) {
+		readMoreButton.click(timeOut);
+	}
 }
