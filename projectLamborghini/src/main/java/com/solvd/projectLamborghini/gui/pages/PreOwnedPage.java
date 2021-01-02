@@ -8,13 +8,13 @@ import com.qaprosoft.carina.core.gui.AbstractUIObject;
 
 public class PreOwnedPage extends LamborghiniAbstractPage{
 
-	@FindBy(xpath="//*[@id=\"images-sx-texts-dx\"]/div[2]/div/div[2]/div/div/div/p")
+	@FindBy(xpath="//*[@class='col-9 offset-1']/div/p")
 	private ExtendedWebElement mainText;
 	
-	@FindBy(xpath="//*[@id=\"simple-list\"]/div/div")
+	@FindBy(xpath="//*[@class='col-12 col-md-11 offset-md-0']")
 	private ExtendedWebElement descriptionText;
 	
-	@FindBy(xpath="//*[@id=\"simple-list--2\"]/div/div/div/p")
+	@FindBy(xpath="//*[@class='col-12 col-md-8 offset-md-3']/div/p")
 	private ExtendedWebElement disclaimerText;
 	
 	public PreOwnedPage(WebDriver driver) {

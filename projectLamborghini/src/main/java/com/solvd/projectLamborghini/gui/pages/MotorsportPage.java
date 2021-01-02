@@ -8,7 +8,7 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 public class MotorsportPage extends LamborghiniAbstractPage{
 
 		
-	@FindBy(xpath="//*[@id=\"partners\"]/div/div/div/div[2]/div")
+	@FindBy(id="partners")
 	private ExtendedWebElement partnersList; 
 	
 	public MotorsportPage(WebDriver driver) {

@@ -7,22 +7,22 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 
 public class DesignPage extends LamborghiniAbstractPage{
 
-	@FindBy(xpath="//*[@id=\"block2\"]/div[1]/div/p[2]")
+	@FindBy(xpath="//*[@id='block2']/div[1]/div/p[2]")
 	private ExtendedWebElement designDNAText;
 	
-	@FindBy(xpath="//*[@id=\"block1-skew-1-text\"]/div/p[2]")
+	@FindBy(xpath="//*[@id='block1-skew-1-text']/div/p[2]")
 	private ExtendedWebElement hexagonAndYText;
 	
-	@FindBy(xpath="//*[@id=\"block4\"]/div[1]/div/p[2]")
+	@FindBy(xpath="//*[@id='block4']/div[1]/div/p[2]")
 	private ExtendedWebElement centroStileText;
 	
-	@FindBy(xpath="//*[@id=\"block4-skew-1-text\"]/div/p[2]")
+	@FindBy(xpath="//*[@id='block4-skew-1-text']/div/p[2]")
 	private ExtendedWebElement processText;
 	
-	@FindBy(xpath="//*[@id=\"block3-title\"]/div[2]/div/p")
+	@FindBy(xpath="//*[@id='block3-title']/div[2]/div/p")
 	private ExtendedWebElement sketchesText;
 	
-	@FindBy(xpath="//*[@id=\"gallery\"]/section/div[1]/div[1]")
+	@FindBy(xpath="//*[@id='gallery']/section/div[1]/div[1]")
 	private ExtendedWebElement gallery;
 	
 	public DesignPage(WebDriver driver) {

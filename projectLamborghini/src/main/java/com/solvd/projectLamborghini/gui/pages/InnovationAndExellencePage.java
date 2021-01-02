@@ -8,25 +8,25 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 public class InnovationAndExellencePage extends LamborghiniAbstractPage{
 
 	
-	@FindBy(xpath="//*[@id=\"block0\"]/div[1]/p[2]//*[@id=\"block0\"]/div[1]/p[2]")
+	@FindBy(xpath="//*[@id='block0']/div[1]/p[2]")
 	private ExtendedWebElement terzoMilenioText; 
 	
-	@FindBy(xpath="//*[@id=\"block0\"]/div[1]/a")
+	@FindBy(xpath="//*[@id='block0']/div[1]/a")
 	private ExtendedWebElement terzoMilenioButton; 
 		
-	@FindBy(xpath="//*[@id=\"block0\"]/div[2]/ul/li/h5/a")
+	@FindBy(xpath="//*[@class='sub']/li/h5/a")
 	private ExtendedWebElement futureCarsButton; 
 	
-	@FindBy(xpath="//*[@id=\"block1\"]/div[1]/p[2]")
+	@FindBy(xpath="//*[@id='block1']/div[1]/p[2]")
 	private ExtendedWebElement forgedCompositesText; 
 	
-	@FindBy(xpath="//*[@id=\"block1\"]/div[1]/a")
+	@FindBy(xpath="//*[@id='block1']/div[1]/a")
 	private ExtendedWebElement forgedCompositesButton; 
 	
-	@FindBy(xpath="//*[@id=\"block2\"]/div[1]/p[2]")
+	@FindBy(xpath="//*[@id='block2']/div[1]/p[2]")
 	private ExtendedWebElement carbonFiberText; 
 	
-	@FindBy(xpath="//*[@id=\"block2\"]/div[1]/a")
+	@FindBy(xpath="//*[@id='block2']/div[1]/a")
 	private ExtendedWebElement carbonFiberButton; 
 	
 	public InnovationAndExellencePage(WebDriver driver) {

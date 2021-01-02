@@ -7,22 +7,22 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 
 public class MasterpiecesPage extends LamborghiniAbstractPage{
 
-	@FindBy(xpath="//*[@id=\"select-models\"]")
+	@FindBy(xpath="//*[@id='select-models']")
 	private ExtendedWebElement selectModel;
 	
-	@FindBy(xpath="//*[@id=\"breadcrumbs\"]/li[1]/a")
+	@FindBy(xpath="//*[@id='breadcrumbs']/li[1]/a")
 	private ExtendedWebElement homeButton;
 	
-	@FindBy(xpath="//*[@id=\"breadcrumbs\"]/li[2]/a")
+	@FindBy(xpath="//*[@id='breadcrumbs']/li[2]/a")
 	private ExtendedWebElement brandButton;
 	
-	@FindBy(xpath="//*[@id=\"block-lambo-content\"]/section/div[2]/div[2]/div[2]/div/div[1]/div")
+	@FindBy(xpath="//*[@class='year ng-scope center']/div/div/div[1]")
 	private ExtendedWebElement selectedYear;
 	
-	@FindBy(xpath="//*[@id=\"block-lambo-content\"]/section/div[3]/div[1]/div/div/div[1]/div")
+	@FindBy(xpath="//*[@class='scroller']")
 	private ExtendedWebElement carsOfTheYear;
 	
-	@FindBy(className ="years-menu")
+	@FindBy(xpath="//*[@class='years-menu']")
 	private ExtendedWebElement timeLine;
 	
 	public MasterpiecesPage(WebDriver driver) {

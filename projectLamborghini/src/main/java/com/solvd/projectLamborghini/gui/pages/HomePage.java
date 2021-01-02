@@ -14,39 +14,39 @@ public class HomePage extends LamborghiniAbstractPage{
 	
    
     //Models 
-	@FindBy(xpath="//*[@id=\"families-gallery-texts\"]/div/div[1]/div[1]")
+	@FindBy(xpath="//*[@class='control-title text-uppercase']")
 	private ExtendedWebElement galleryTag;
 	
-	@FindBy(xpath="//*[@id=\"families-gallery-texts\"]/div/div[1]/div[2]/button[1]")
+	@FindBy(xpath="//*[@class='on-dark btn-prev prev']")
 	private ExtendedWebElement galleryPrevButton;
 	
-	@FindBy(xpath="//*[@id=\"families-gallery-texts\"]/div/div[1]/div[2]/button[2]")
+	@FindBy(xpath="//*[@class='on-dark btn-next next']")
 	private ExtendedWebElement galleryNextButton;
 		
-	@FindBy(xpath="//*[@id=\"families-gallery-texts\"]/div/div[2]/div[2]/button")
+	@FindBy(xpath="//*[@class='on-dark btn-explore explore-models button-wrapper']")
 	private ExtendedWebElement galleryExploreMoreButton;
 	
 	//Car configurator
-	@FindBy(xpath = "//*[@id=\"model-chooser\"]/div[1]/div[1]/div/div[1]/div[1]/h3/div")
+	@FindBy(xpath = "//*[@class='link-item header-slider active']/h3/div")
 	private ExtendedWebElement carConfiguratorTitle;
 	
-	@FindBy(xpath = "//*[@id=\"model-chooser\"]/div[1]/div[1]/div/div[1]/div[1]/h2")
+	@FindBy(xpath = "//*[@class='link-item header-slider active']/h2")
 	private ExtendedWebElement carConfiguratorDescription;
 	
-	@FindBy(xpath = "//*[@id=\"model-chooser\"]/div[1]/div[1]/div/div[1]/div[1]/a")
+	@FindBy(xpath = "//*[@class='link-item header-slider active']/a")
 	private ExtendedWebElement carConfiguratorButton;
 	
-	@FindBy(xpath ="//*[@id=\"model-chooser\"]/div[1]/div[1]/div/div[2]")
+	@FindBy(xpath="//*[@class='pagination']")
 	private List<ExtendedWebElement> carConfiguratorLinks;
     
     //Dealer locator
-	@FindBy(xpath = "//*[@id=\"banner\"]/div/div[2]/h4")
+	@FindBy(xpath = "//*[@class='link offset-sm-1']/h4")
 	private ExtendedWebElement dealerLocatorTitle;
 	
-	@FindBy(xpath = "//*[@id=\"banner\"]/div/div[2]/h2")
+	@FindBy(xpath = "//*[@class='link offset-sm-1']/h2")
 	private ExtendedWebElement dealerLocatorDescription;
 	
-	@FindBy(xpath = "//*[@id=\"banner\"]/div/div[2]/a")
+	@FindBy(xpath = "//*[@class='link offset-sm-1']/a")
 	private ExtendedWebElement dealerLocatorButton;
     
 	//News
@@ -57,7 +57,7 @@ public class HomePage extends LamborghiniAbstractPage{
     private ExtendedWebElement seeAllNewsButton;
       
     //Emmissions banner
-	@FindBy(xpath="/html/body/div/div[3]")
+	@FindBy(xpath="//*[@class='emissions-banner fixed-bottom text-center']")
 	private ExtendedWebElement bannerText;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
     
 	public HomePage(WebDriver driver) {

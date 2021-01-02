@@ -7,22 +7,22 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 
 public class HistoryPage extends LamborghiniAbstractPage{
 	
-	@FindBy(xpath="//*[@id=\"block-lambo-content\"]/section/div[1]/div[2]")
+	@FindBy(xpath="//*[@id='block-lambo-content']/section/div[1]/div[2]")
 	private ExtendedWebElement horizontalTimeLine;
 	
-	@FindBy(xpath="//*[@id=\"block-lambo-content\"]/section/div[2]/div[2]/ul")
+	@FindBy(xpath="//*[@id='block-lambo-content']/section/div[2]/div[2]/ul")
 	private ExtendedWebElement verticalTimeLine;
 	
-	@FindBy(xpath="//*[@id=\"block-lambo-content\"]/section/div[2]/div[3]/div[1]/div[1]/img")
+	@FindBy(xpath="//*[@class='pic']/img")
 	private ExtendedWebElement mainImg;
 	
-	@FindBy(xpath="//*[@id=\"block-lambo-content\"]/section/div[2]/div[3]/div[1]/div[2]/div")
+	@FindBy(xpath="//*[@class='wrappertext ng-binding']")
 	private ExtendedWebElement mainText;
 	
-	@FindBy(xpath="//*[@id=\"block-lambo-content\"]/section/div[2]/div[3]/div[2]/div[1]/img")
+	@FindBy(xpath="//*[@class='bottom']/div[1]")
 	private ExtendedWebElement secondaryImg;
 	
-	@FindBy(xpath="//*[@id=\"block-lambo-content\"]/section/div[2]/div[3]/div[2]/div[2]/img")
+	@FindBy(xpath="//*[@class='bottom']/div[2]")
 	private ExtendedWebElement thirdImg;
 	
 	

@@ -7,13 +7,13 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 
 public class LoungePage extends LamborghiniAbstractPage{
 	
-	@FindBy(xpath="//*[@id=\"block-lambo-content\"]/section/div[3]/div/span[2]")
+	@FindBy(xpath="//*[@class='subtitle ng-binding']")
 	private ExtendedWebElement title;
 	
-	@FindBy(xpath="//*[@id=\"ariacontent\"]/section[1]/div[1]/p[2]")
+	@FindBy(xpath="//section[1]/div[1]/p[2]")
 	private ExtendedWebElement mainText;
 	
-	@FindBy(xpath="//*[@id=\"ariacontent\"]/section[1]/div[1]/p[2]")
+	@FindBy(xpath="//section[2]/div[1]/p[2]")
 	private ExtendedWebElement secondaryText;
 	
 	public LoungePage(WebDriver driver) {

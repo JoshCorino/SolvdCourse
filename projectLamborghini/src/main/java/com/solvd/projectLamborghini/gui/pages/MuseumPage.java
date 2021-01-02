@@ -8,19 +8,19 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 public class MuseumPage extends LamborghiniAbstractPage{
 	
 	
-	@FindBy(xpath="//*[@id=\"block3\"]/div/div/div[4]/div[1]")
+	@FindBy(className="air active")
 	private ExtendedWebElement planeButton; 
 	
-	@FindBy(xpath="//*[@id=\"block3\"]/div/div/div[4]/div[2]")
+	@FindBy(className="taxi")
 	private ExtendedWebElement carButton; 
 	
-	@FindBy(xpath="//*[@id=\"block3\"]/div/div/div[4]/div[3]")
+	@FindBy(className="bus")
 	private ExtendedWebElement busButton; 
 	
-	@FindBy(xpath="	//*[@id=\"block2\"]/div/div")
+	@FindBy(className="column small-eight small-push-two  reset last reachuscontent")
 	private ExtendedWebElement information; 
 	
-	@FindBy(xpath="//*[@id=\"partners\"]/div")
+	@FindBy(xpath="//*[@id='partners']/div")
 	private ExtendedWebElement partners; 
 
 	public MuseumPage(WebDriver driver) {
