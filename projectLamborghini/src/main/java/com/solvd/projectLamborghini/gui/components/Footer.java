@@ -16,7 +16,7 @@ public class Footer extends AbstractUIObject{
     private ExtendedWebElement linksList;
     
     @FindBy(xpath="//*[@id=\"scroll-container\"]/footer/div/div/div/div/div[1]/div[3]/p")
-    private ExtendedWebElement text;
+    private ExtendedWebElement copyrightText;
     
     @FindBy(xpath="//*[@id=\"scroll-container\"]/footer/div/div/div/div/div[2]")
     private List<ExtendedWebElement> socialLinksList;
@@ -31,7 +31,7 @@ public class Footer extends AbstractUIObject{
 	}
 	
 	public String getMainText() {
-		return text.getText();
+		return copyrightText.getText();
 	}
 	
 }

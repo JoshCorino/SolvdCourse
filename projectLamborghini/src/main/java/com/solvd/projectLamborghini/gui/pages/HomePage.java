@@ -19,10 +19,10 @@ public class HomePage extends LamborghiniAbstractPage{
 	private ExtendedWebElement galleryTag;
 	
 	@FindBy(xpath="//*[@id=\"families-gallery-texts\"]/div/div[1]/div[2]/button[1]")
-	private ExtendedWebElement galleryButtonPrev;
+	private ExtendedWebElement galleryPrevButton;
 	
 	@FindBy(xpath="//*[@id=\"families-gallery-texts\"]/div/div[1]/div[2]/button[2]")
-	private ExtendedWebElement galleryButtonNext;
+	private ExtendedWebElement galleryNextButton;
 		
 	@FindBy(xpath="//*[@id=\"families-gallery-texts\"]/div/div[2]/div[2]/button")
 	private ExtendedWebElement galleryExploreMoreButton;
@@ -91,16 +91,6 @@ public class HomePage extends LamborghiniAbstractPage{
 
 	public ExtendedWebElement getGalleryTag() {
 		return galleryTag;
-	}
-
-
-	public ExtendedWebElement getGalleryButtonPrev() {
-		return galleryButtonPrev;
-	}
-
-
-	public ExtendedWebElement getGalleryButtonNext() {
-		return galleryButtonNext;
 	}
 
 

@@ -20,10 +20,10 @@ public class HistoryPage extends LamborghiniAbstractPage{
 	private ExtendedWebElement mainText;
 	
 	@FindBy(xpath="//*[@id=\"block-lambo-content\"]/section/div[2]/div[3]/div[2]/div[1]/img")
-	private ExtendedWebElement secondaryImgOne;
+	private ExtendedWebElement secondaryImg;
 	
 	@FindBy(xpath="//*[@id=\"block-lambo-content\"]/section/div[2]/div[3]/div[2]/div[2]/img")
-	private ExtendedWebElement secondaryImgTwo;
+	private ExtendedWebElement thirdImg;
 	
 	
 	public HistoryPage(WebDriver driver) {
@@ -51,14 +51,6 @@ public class HistoryPage extends LamborghiniAbstractPage{
 	}
 
 
-	public ExtendedWebElement getSecondaryImgOne() {
-		return secondaryImgOne;
-	}
-
-
-	public ExtendedWebElement getSecondaryImgTwo() {
-		return secondaryImgTwo;
-	}
 
 	
 }
