@@ -20,16 +20,5 @@ public class LoungePage extends LamborghiniAbstractPage{
 		super(driver);
 	}
 
-	public ExtendedWebElement getTitle() {
-		return title;
-	}
-
-	public ExtendedWebElement getMainText() {
-		return mainText;
-	}
-
-	public ExtendedWebElement getSecondaryText() {
-		return secondaryText;
-	}
 	
 }

@@ -42,45 +42,6 @@ public class OwnershipPage extends LamborghiniAbstractPage{
 		super(driver);
 	}
 
-	public ExtendedWebElement getPoloText() {
-		return poloText;
-	}
-
-	public ExtendedWebElement getPoloButton() {
-		return poloButton;
-	}
-
-	public ExtendedWebElement getAccesoriesText() {
-		return accesoriesText;
-	}
-
-	public ExtendedWebElement getAccesoriesButton() {
-		return accesoriesButton;
-	}
-
-	public ExtendedWebElement getServiceLocatorButton() {
-		return serviceLocatorButton;
-	}
-
-	public ExtendedWebElement getSparePartsButton() {
-		return sparePartsButton;
-	}
-
-	public ExtendedWebElement getOriginalAccesoriesButton() {
-		return originalAccesoriesButton;
-	}
-
-	public ExtendedWebElement getFinancialServiceButton() {
-		return financialServiceButton;
-	}
-
-	public ExtendedWebElement getModelsButton() {
-		return modelsButton;
-	}
-
-	public ExtendedWebElement getMuseumButton() {
-		return museumButton;
-	}
 
 	
 }

@@ -29,29 +29,5 @@ public class MasterpiecesPage extends LamborghiniAbstractPage{
 		super(driver);
 	}
 
-	public ExtendedWebElement getSelectModel() {
-		return selectModel;
-	}
-
-	public ExtendedWebElement getHomeButton() {
-		return homeButton;
-	}
-
-	public ExtendedWebElement getBrandButton() {
-		return brandButton;
-	}
-
-	public ExtendedWebElement getSelectedYear() {
-		return selectedYear;
-	}
-
-	public ExtendedWebElement getCarsOfTheYear() {
-		return carsOfTheYear;
-	}
-
-	public ExtendedWebElement getTimeLine() {
-		return timeLine;
-	}
-
 	
 }

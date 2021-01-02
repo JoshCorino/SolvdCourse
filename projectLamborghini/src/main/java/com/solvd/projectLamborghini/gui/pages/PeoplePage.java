@@ -33,32 +33,6 @@ public class PeoplePage extends LamborghiniAbstractPage{
 		super(driver);
 	}
 
-	public ExtendedWebElement getMainText() {
-		return mainText;
-	}
 
-	public ExtendedWebElement getFerruccioText() {
-		return ferruccioText;
-	}
-
-	public ExtendedWebElement getFerruccioButton() {
-		return ferruccioButton;
-	}
-
-	public ExtendedWebElement getTalentText() {
-		return talentText;
-	}
-
-	public ExtendedWebElement getAccesoriesButton() {
-		return accesoriesButton;
-	}
-
-	public ExtendedWebElement getModelsButton() {
-		return modelsButton;
-	}
-
-	public ExtendedWebElement getStoreButton() {
-		return storeButton;
-	}
 
 }

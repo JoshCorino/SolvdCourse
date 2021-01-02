@@ -51,58 +51,7 @@ public class ModelsPage extends LamborghiniAbstractPage{
 		super(driver);
 	}
 
-	public ExtendedWebElement getAventadorText() {
-		return aventadorText;
-	}
 
-	public ExtendedWebElement getHuracanText() {
-		return huracanText;
-	}
-
-	public ExtendedWebElement getUrusText() {
-		return urusText;
-	}
-
-	public ExtendedWebElement getLimitedSeriesText() {
-		return limitedSeriesText;
-	}
-
-	public ExtendedWebElement getConceptText() {
-		return conceptText;
-	}
-
-	public ExtendedWebElement getCompanyButton() {
-		return companyButton;
-	}
-
-	public ExtendedWebElement getAdPersonamButton() {
-		return adPersonamButton;
-	}
-
-	public ExtendedWebElement getBannerText() {
-		return bannerText;
-	}
-
-	public ExtendedWebElement getAventadorButtons() {
-		return aventadorButtons;
-	}
-
-	public ExtendedWebElement getHuracanButtons() {
-		return huracanButtons;
-	}
-
-	public ExtendedWebElement getUrusButtons() {
-		return urusButtons;
-	}
-
-	public ExtendedWebElement getLimitedSeriesButtons() {
-		return limitedSeriesButtons;
-	}
-
-	public ExtendedWebElement getConceptButtons() {
-		return conceptButtons;
-	}
-	
     
     
 }

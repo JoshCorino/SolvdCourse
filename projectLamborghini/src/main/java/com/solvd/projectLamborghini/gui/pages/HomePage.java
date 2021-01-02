@@ -12,8 +12,7 @@ import com.solvd.projectLamborghini.gui.components.New;
 
 public class HomePage extends LamborghiniAbstractPage{
 	
-    private static final Logger LOGGER = LoggerFactory.getLogger(HomePage.class);
-    
+   
     //Models 
 	@FindBy(xpath="//*[@id=\"families-gallery-texts\"]/div/div[1]/div[1]")
 	private ExtendedWebElement galleryTag;
@@ -65,72 +64,31 @@ public class HomePage extends LamborghiniAbstractPage{
 		super(driver);
 	}
 
-
-	public ExtendedWebElement getDealerLocatorTitle() {
-		return dealerLocatorTitle;
-	}
-
-
-	public ExtendedWebElement getDealerLocatorDescription() {
-		return dealerLocatorDescription;
-	}
-
-	public ExtendedWebElement getDealerLocatorButton() {
-		return dealerLocatorButton;
-	}
-
-	public ExtendedWebElement getEmissionsBanner() {
-		return bannerText;
-	}
-
-
-	public static Logger getLogger() {
-		return LOGGER;
-	}
-
-
-	public ExtendedWebElement getGalleryTag() {
-		return galleryTag;
-	}
-
-
-	public ExtendedWebElement getGalleryExploreMoreButton() {
-		return galleryExploreMoreButton;
-	}
-
-
-	public ExtendedWebElement getCarConfiguratorTitle() {
-		return carConfiguratorTitle;
-	}
-
-
-	public ExtendedWebElement getCarConfiguratorDescription() {
-		return carConfiguratorDescription;
-	}
-
-
-	public ExtendedWebElement getCarConfiguratorButton() {
-		return carConfiguratorButton;
-	}
-
-
-	public List<ExtendedWebElement> getCarConfiguratorLinks() {
-		return carConfiguratorLinks;
-	}
-
-
 	public List<New> getNews() {
 		return news;
 	}
 
+	public String getGalleryTagText() {
+		return galleryTag.getText();
+	}
 
-	public ExtendedWebElement getSeeAllNewsButton() {
-		return seeAllNewsButton;
+	public void clickCarConfiguratorButton(long i) {
+		carConfiguratorButton.click(i);
+	}
+
+	public void clickDealerLocatorButton(long i) {
+		dealerLocatorButton.click(i);
+	}
+
+	public void clickSeeAllNewsButton(long i) {
+		seeAllNewsButton.click(i);
+		
+	}
+
+	public String getEmissionsBannerText() {
+		
+		return bannerText.getText();
 	}
 
 
-	public ExtendedWebElement getBannerText() {
-		return bannerText;
-	}
-	
 }

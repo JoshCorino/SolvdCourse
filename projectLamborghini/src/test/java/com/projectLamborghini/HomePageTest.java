@@ -10,7 +10,6 @@ import com.solvd.projectLamborghini.gui.pages.HomePage;
 
 public class HomePageTest extends AbstractTest {
 	
-	private final String DEALER_EXPECTED_URL= "https://www.lamborghini.com/en-en/dealer-locator";
     private final String EMISSIONS_BANNER_EXPECTED_TEXT= "Fuel consumption and emission values of all vehicles promoted on this page -Fuel consumption and emission: 18.8 - 12,7 l/100km ; CO2-emissions combined: 499 g/km - 325 g/km (WLTP)";
     private final String GALLERY_TAG_EXPECTED_TEXT= "MODELS";
     private final String CAR_CONFIGURATOR_EXPECTED_URL= "https://www.lamborghini.com/en-en/";
@@ -24,7 +23,7 @@ public class HomePageTest extends AbstractTest {
     	
     	HomePage hp = new HomePage(getDriver());
 		hp.open();
-		String text = hp.getGalleryTag().getText();
+		String text = hp.getGalleryTagText();
 		Assert.assertEquals(text, GALLERY_TAG_EXPECTED_TEXT);
 
 	}
@@ -35,8 +34,7 @@ public class HomePageTest extends AbstractTest {
     	
     	HomePage hp = new HomePage(getDriver());
 		hp.open();
-		ExtendedWebElement button = hp.getCarConfiguratorButton();
-		button.click(0);
+		hp.clickCarConfiguratorButton(0);
 		Assert.assertEquals(getDriver().getCurrentUrl(),CAR_CONFIGURATOR_EXPECTED_URL);		 
 		
 	}
@@ -47,8 +45,7 @@ public class HomePageTest extends AbstractTest {
     	
     	HomePage hp = new HomePage(getDriver());
 		hp.open();
-		ExtendedWebElement button = hp.getDealerLocatorButton();
-		button.click(0);
+		hp.clickDealerLocatorButton(0);
 		Assert.assertEquals(getDriver().getCurrentUrl(),DEALER_LOCATOR_EXPECTED_URL);		 
 		
 	}
@@ -59,21 +56,8 @@ public class HomePageTest extends AbstractTest {
     	
     	HomePage hp = new HomePage(getDriver());
 		hp.open();
-		ExtendedWebElement button = hp.getSeeAllNewsButton();
-		button.click(0);
+		hp.clickSeeAllNewsButton(0);
 		Assert.assertEquals(getDriver().getCurrentUrl(),SEE_NEWS_EXPECTED_URL);		 
-		
-	}
-
-    @Test
-	@MethodOwner(owner ="Joshua Corino")
-	public void testDealerLocatorButton() {
-    	
-    	HomePage hp = new HomePage(getDriver());
-		hp.open();
-		ExtendedWebElement button = hp.getDealerLocatorButton();
-		button.click(0);
-		Assert.assertEquals(getDriver().getCurrentUrl(),DEALER_EXPECTED_URL);		 
 		
 	}
 
@@ -84,7 +68,7 @@ public class HomePageTest extends AbstractTest {
     	
     	HomePage hp = new HomePage(getDriver());
 		hp.open();
-		String text = hp.getEmissionsBanner().getText();
+		String text = hp.getEmissionsBannerText();
 		Assert.assertEquals(text, EMISSIONS_BANNER_EXPECTED_TEXT);
 
 	}

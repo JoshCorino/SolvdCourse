@@ -15,9 +15,7 @@ public class MotorsportPage extends LamborghiniAbstractPage{
 		super(driver);
 	}
 
-	public ExtendedWebElement getPartnersList() {
-		return partnersList;
-	}
+
 
 	
 }

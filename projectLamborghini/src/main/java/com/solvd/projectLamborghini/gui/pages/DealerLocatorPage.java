@@ -26,23 +26,5 @@ public class DealerLocatorPage extends LamborghiniAbstractPage{
 	}
 
 
-	public ExtendedWebElement getDealerTypes() {
-		return dealerTypes;
-	}
 
-
-	public ExtendedWebElement getSearchBar() {
-		return searchBar;
-	}
-
-
-	public ExtendedWebElement getResults() {
-		return results;
-	}
-
-
-	public ExtendedWebElement getMap() {
-		return map;
-	}
-	
 }

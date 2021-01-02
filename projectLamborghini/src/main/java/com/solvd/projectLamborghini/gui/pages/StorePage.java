@@ -26,25 +26,6 @@ public class StorePage extends LamborghiniAbstractPage{
 	}
 
 
-	public ExtendedWebElement getGoToStoreButton() {
-		return goToStoreButton;
-	}
-
-
-	public ExtendedWebElement getStoreData() {
-		return storeData;
-	}
-
-
-	public ExtendedWebElement getCompaniesButton() {
-		return companiesButton;
-	}
-
-
-	public ExtendedWebElement getModelsButton() {
-		return modelsButton;
-	}
-	
 	
 
 }

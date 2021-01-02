@@ -33,33 +33,6 @@ public class InnovationAndExellencePage extends LamborghiniAbstractPage{
 		super(driver);
 	}
 
-	public ExtendedWebElement getTerzoMilenioText() {
-		return terzoMilenioText;
-	}
 
-	public ExtendedWebElement getTerzoMilenioButton() {
-		return terzoMilenioButton;
-	}
-
-	public ExtendedWebElement getFutureCarsButton() {
-		return futureCarsButton;
-	}
-
-	public ExtendedWebElement getForgedCompositesText() {
-		return forgedCompositesText;
-	}
-
-	public ExtendedWebElement getForgedCompositesButton() {
-		return forgedCompositesButton;
-	}
-
-	public ExtendedWebElement getCarbonFiberText() {
-		return carbonFiberText;
-	}
-
-	public ExtendedWebElement getCarbonFiberButton() {
-		return carbonFiberButton;
-	}
-	
 	
 }

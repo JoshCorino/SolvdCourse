@@ -21,16 +21,6 @@ public class PreOwnedPage extends LamborghiniAbstractPage{
 		super(driver);
 	}
 
-	public ExtendedWebElement getMainText() {
-		return mainText;
-	}
-
-	public ExtendedWebElement getDescriptionText() {
-		return descriptionText;
-	}
-
-	public ExtendedWebElement getDisclaimerText() {
-		return disclaimerText;
-	}
+	
 
 }

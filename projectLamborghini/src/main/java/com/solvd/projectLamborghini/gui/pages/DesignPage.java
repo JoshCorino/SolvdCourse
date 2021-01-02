@@ -29,25 +29,7 @@ public class DesignPage extends LamborghiniAbstractPage{
 		super(driver);
 	}
 
-	public void setDesignDNA(ExtendedWebElement designDNA) {
-		this.designDNA = designDNA;
-	}
 
-	public void setHexagonAndY(ExtendedWebElement hexagonAndY) {
-		this.hexagonAndY = hexagonAndY;
-	}
-
-	public void setCentroStile(ExtendedWebElement centroStile) {
-		this.centroStile = centroStile;
-	}
-
-	public void setProcess(ExtendedWebElement process) {
-		this.process = process;
-	}
-
-	public void setSketches(ExtendedWebElement sketches) {
-		this.sketches = sketches;
-	}
 	
 	
 }
