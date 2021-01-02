@@ -9,13 +9,13 @@ import com.qaprosoft.carina.core.gui.AbstractUIObject;
 
 public class DisclaimerCookie extends AbstractUIObject{
 
-	@FindBy(xpath="//*[@id=\"disclaimer-cookie\"]/div/div[1]/p")
+	@FindBy(xpath="./div/div[1]/p")
 	private ExtendedWebElement termsText;
 	
-	@FindBy(xpath="//*[@id=\"disclaimer-cookie\"]/div/div[1]/p/a")
+	@FindBy(xpath="./div/div[1]/p/a")
 	private ExtendedWebElement cookiesButton;
 		
-	@FindBy(xpath="//*[@id=\"disclaimer-cookie\"]/div/div[2]/button")
+	@FindBy(xpath="./div/div[2]/button")
 	private ExtendedWebElement agreeButton;
 	
 	public DisclaimerCookie(WebDriver driver, SearchContext searchContext) {

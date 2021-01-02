@@ -12,16 +12,16 @@ import com.qaprosoft.carina.core.gui.AbstractUIObject;
 
 public class Header extends AbstractUIObject{
 
-    @FindBy(xpath="/html/body/div/header/nav/a/img")
+    @FindBy(xpath="./nav/a/img")
 	private ExtendedWebElement logo;
     
-    @FindBy(xpath="/html/body/div/header/nav/ul[1]")
+    @FindBy(xpath="./nav/ul[1]")
 	private ExtendedWebElement leftList;
     
-    @FindBy(xpath="/html/body/div/header/nav/ul[2]")
+    @FindBy(xpath="./nav/ul[2]")
 	private ExtendedWebElement rightList;
     
-    @FindBy(xpath="/html/body/div/header/nav/div[1]")
+    @FindBy(xpath="./nav/div[1]")
 	private ExtendedWebElement rightButtons;
 	
 	public Header(WebDriver driver, SearchContext searchContext) {

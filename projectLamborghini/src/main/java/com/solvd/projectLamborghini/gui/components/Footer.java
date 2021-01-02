@@ -12,13 +12,13 @@ import com.qaprosoft.carina.core.gui.AbstractUIObject;
 
 public class Footer extends AbstractUIObject{
 
-    @FindBy(xpath="//*[@id=\"scroll-container\"]/footer/div/div/div/div/div[1]/div[1]/ul")
+    @FindBy(xpath="./div/div/div/div/div[1]/div[1]/ul")
     private ExtendedWebElement linksList;
     
-    @FindBy(xpath="//*[@id=\"scroll-container\"]/footer/div/div/div/div/div[1]/div[3]/p")
+    @FindBy(xpath="./div/div/div/div/div[1]/div[3]/p")
     private ExtendedWebElement copyrightText;
     
-    @FindBy(xpath="//*[@id=\"scroll-container\"]/footer/div/div/div/div/div[2]")
+    @FindBy(xpath="./div/div/div/div/div[2]")
     private List<ExtendedWebElement> socialLinksList;
     
 	public Footer(WebDriver driver, SearchContext searchContext) {

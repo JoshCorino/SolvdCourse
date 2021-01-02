@@ -9,16 +9,14 @@ import com.qaprosoft.carina.core.gui.AbstractUIObject;
 
 public class New extends AbstractUIObject{
 
-    @FindBy(className="image img-loaded")
-    private ExtendedWebElement img;
-    
-    @FindBy(xpath="//*[@id=\"news\"]/section/div/div/div/div/div")
+   
+    @FindBy(xpath="./section/div/div/div/div/div")
     private ExtendedWebElement date;
     
-    @FindBy(xpath="//*[@id=\"news\"]/section/div/div/div/div/div/a/h2")
+    @FindBy(xpath="./section/div/div/div/div/div/a/h2")
     private ExtendedWebElement title;
     
-    @FindBy(xpath="//*[@id=\"news\"]/section/div/div/div/div/a")
+    @FindBy(xpath="./section/div/div/div/div/a")
     private ExtendedWebElement readMoreButton;
     
 	public New(WebDriver driver, SearchContext searchContext) {

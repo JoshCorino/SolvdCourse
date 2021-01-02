@@ -13,7 +13,7 @@ public abstract class LamborghiniAbstractPage extends AbstractPage{
     @FindBy(xpath="/html/body/div/header") 
     private Header header;
     
-    @FindBy(className="container-fluid")
+    @FindBy(xpath="//*[@class='container-fluid']")
     private Footer footerMenu;
     
     @FindBy(id="disclaimer-cookie")
