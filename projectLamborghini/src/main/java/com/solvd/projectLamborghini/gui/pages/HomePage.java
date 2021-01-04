@@ -82,9 +82,12 @@ public class HomePage extends LamborghiniAbstractPage{
 
 	public void clickSeeAllNewsButton(long i) {
 		seeAllNewsButton.click(i);
-		
 	}
 
+	public MotorsportPage clickMotorsportButton(long i) {
+		return getHeader().clickMotorsport(i);
+	}
+	
 	public String getEmissionsBannerText() {
 		
 		return bannerText.getText();
