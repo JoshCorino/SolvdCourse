@@ -33,4 +33,5 @@ public class DisclaimerCookie extends AbstractUIObject{
 	public void clickCookiesButton(long timeOut) {
 		cookiesButton.click(timeOut);
 	}
+	
 }

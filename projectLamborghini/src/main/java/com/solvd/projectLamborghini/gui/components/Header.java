@@ -4,13 +4,16 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.By.ByLinkText;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
+import com.solvd.projectLamborghini.gui.pages.ChatbotPage;
 import com.solvd.projectLamborghini.gui.pages.MotorsportPage;
 
 public class Header extends AbstractUIObject{
@@ -44,5 +47,11 @@ public class Header extends AbstractUIObject{
 	public MotorsportPage clickMotorsport(long i) {
 		leftList.findExtendedWebElement(By.xpath("./li[3]/a")).click(i);
 		return new MotorsportPage(driver);
+	}
+	
+	public ChatbotPage clickChat(long i) {
+
+		rightButtons.findExtendedWebElement(By.xpath("./button[1]")).click(i);
+		return new ChatbotPage(driver);
 	}
 }

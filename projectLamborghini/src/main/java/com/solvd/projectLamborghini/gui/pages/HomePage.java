@@ -2,6 +2,7 @@ package com.solvd.projectLamborghini.gui.pages;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
@@ -92,6 +93,8 @@ public class HomePage extends LamborghiniAbstractPage{
 		
 		return bannerText.getText();
 	}
-
+	public ChatbotPage clickChat(long i) {
+		return getHeader().clickChat(i);
+	}
 
 }
