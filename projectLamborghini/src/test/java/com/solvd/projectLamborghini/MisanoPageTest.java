@@ -25,13 +25,13 @@ import com.solvd.projectLamborghini.services.GoToMisanoPageService;
 
 public class MisanoPageTest extends AbstractTest implements GoToMisanoPageService{
 	
-	private static final String EXPECTED_LENGTH = "4,2 km";
-	private static final String EXPECTED_DESCRIPTION = "The Misano World Circuit Marco Simoncelli is located near the town of Misano Adriatico"
+	private final String EXPECTED_LENGTH = "4,2 km";
+	private final String EXPECTED_DESCRIPTION = "The Misano World Circuit Marco Simoncelli is located near the town of Misano Adriatico"
 												+ ", in the Province of Rimini. It was opened in 1972. Since the 1990s, it has served as a venue for top motorcycle racing, "
 												+ "Grand Prix Motorcycle Racing and Superbike events, attracting up to 100,000 spectators at a time. "
 												+ "It is one of the most popular circuits among motorsport fans thanks to a lighting system that enables "
 												+ "it to host breathtaking night races, not to mention its 70,000 m² paddock and the nearby attractions of the Romagna Riviera. ";
-	private static Logger log = LogManager.getLogger(MisanoPageTest.class);
+	private Logger log = LogManager.getLogger(MisanoPageTest.class);
 
 	
     @Test
