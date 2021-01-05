@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Lamborghini Tests - MisanoPage Test" parallel="methods">
+
+    <test name="Lamborghini MisanoPage Test">
+        <classes>
+            <class name="com.solvd.projectLamborghini.MisanoPageTest" />
+        </classes>
+    </test>
+
+</suite>

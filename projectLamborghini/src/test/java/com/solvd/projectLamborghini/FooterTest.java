@@ -1,4 +1,4 @@
-package com.projectLamborghini;
+package com.solvd.projectLamborghini;
 import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.solvd.projectLamborghini.gui.components.*;
@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class FooterTest  extends AbstractTest {
     private final String EXPECTED_TEXT= "COMPANYCAREERSCONTACT USMEDIA CENTERPRIVACY & LEGALSITEMAPNEWSLETTER";
-    private final String EXPECTED_MAIN_TEXT= "Copyright Â© 2021 Automobili Lamborghini S.p.A. a sole shareholder company part of Audi Group.All rights reserved. VAT no. IT 00591801204";
+    private final String EXPECTED_MAIN_TEXT= "Copyright © 2021 Automobili Lamborghini S.p.A. a sole shareholder company part of Audi Group.All rights reserved. VAT no. IT 00591801204";
 	
     @Test
 	@MethodOwner(owner ="Joshua Corino")

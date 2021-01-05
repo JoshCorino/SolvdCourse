@@ -10,9 +10,11 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 public class MisanoPage extends LamborghiniAbstractPage{
 	   
 
-	//Models 
 	@FindBy(xpath="//*[@class='col-12 col-md row no-gutters borders']/div[1]/div[2]")
 	private ExtendedWebElement lengthText;
+	
+	@FindBy(xpath="//*[@id='links-and-text']//p")
+	private ExtendedWebElement descriptionText;
 	
 	@FindBy(xpath="//*[@class='icon-links col-12 col-md-5 d-none d-md-flex flex-column ']/div[1]/div[3]//a")
 	private ExtendedWebElement officialEntryListDownloadButton;
@@ -44,5 +46,13 @@ public class MisanoPage extends LamborghiniAbstractPage{
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("arguments[0].click()", ele);
 		
+	}
+
+	public String getLenghtText() {
+		return lengthText.getText();
+	}
+	
+	public String getDescriptionText() {
+		return descriptionText.getText();
 	}
 }

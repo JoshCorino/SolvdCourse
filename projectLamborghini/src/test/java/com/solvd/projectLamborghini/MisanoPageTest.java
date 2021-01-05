@@ -1,4 +1,4 @@
-package com.projectLamborghini;
+package com.solvd.projectLamborghini;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -21,21 +21,24 @@ import com.solvd.projectLamborghini.gui.pages.HomePage;
 import com.solvd.projectLamborghini.gui.pages.MisanoPage;
 import com.solvd.projectLamborghini.gui.pages.MotorsportPage;
 import com.solvd.projectLamborghini.gui.pages.SuperTrofeoPage;
+import com.solvd.projectLamborghini.services.GoToMisanoPageService;
 
-public class DetailedTimetablePdfTest extends AbstractTest {
+public class MisanoPageTest extends AbstractTest implements GoToMisanoPageService{
 	
-	private static Logger log = LogManager.getLogger(DetailedTimetablePdfTest.class);
+	private static final String EXPECTED_LENGTH = "4,2 km";
+	private static final String EXPECTED_DESCRIPTION = "The Misano World Circuit Marco Simoncelli is located near the town of Misano Adriatico"
+												+ ", in the Province of Rimini. It was opened in 1972. Since the 1990s, it has served as a venue for top motorcycle racing, "
+												+ "Grand Prix Motorcycle Racing and Superbike events, attracting up to 100,000 spectators at a time. "
+												+ "It is one of the most popular circuits among motorsport fans thanks to a lighting system that enables "
+												+ "it to host breathtaking night races, not to mention its 70,000 m² paddock and the nearby attractions of the Romagna Riviera. ";
+	private static Logger log = LogManager.getLogger(MisanoPageTest.class);
 
 	
     @Test
 	@MethodOwner(owner ="Joshua Corino")
-	public void testPdf() {
-		HomePage homePage = new HomePage(getDriver());
-		homePage.open();
-		MotorsportPage motorsportPage = homePage.clickMotorsportButton(0);
-		SuperTrofeoPage superPage = motorsportPage.clickSuperTrofeoButton(0);
-		EuropeTrofeoPage europePage = superPage.clickEuropeChampionshipButton(0);
-		MisanoPage misanoPage = europePage.clickFirstResultButton(0);
+	public void testDetailedTimetablePdf() {
+    	
+		MisanoPage misanoPage = openMisanoPage(getDriver());
 		String window1Handler = getDriver().getWindowHandle();
 		misanoPage.clickdetailedTimetableButtonButton(0);
 		Set<String> windows = getDriver().getWindowHandles();
@@ -76,5 +79,23 @@ public class DetailedTimetablePdfTest extends AbstractTest {
 				log.info(e);
 			}
 		}
+    }
+    
+    @Test
+	@MethodOwner(owner ="Joshua Corino")
+	public void testLength() {
+    	
+    	MisanoPage misanoPage = openMisanoPage(getDriver());
+    	Assert.assertEquals(misanoPage.getLenghtText(),EXPECTED_LENGTH);
+    	
+    }
+    
+    @Test
+	@MethodOwner(owner ="Joshua Corino")
+	public void testDescription() {
+    	
+    	MisanoPage misanoPage = openMisanoPage(getDriver());
+    	Assert.assertEquals(misanoPage.getDescriptionText(),EXPECTED_DESCRIPTION);
+    	
     }
 }

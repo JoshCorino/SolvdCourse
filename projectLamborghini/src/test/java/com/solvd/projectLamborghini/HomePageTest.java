@@ -1,4 +1,4 @@
-package com.projectLamborghini;
+package com.solvd.projectLamborghini;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

@@ -1,4 +1,4 @@
-package com.projectLamborghini;
+package com.solvd.projectLamborghini;
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
