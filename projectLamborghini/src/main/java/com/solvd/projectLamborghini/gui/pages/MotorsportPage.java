@@ -1,21 +1,28 @@
 package com.solvd.projectLamborghini.gui.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 
 public class MotorsportPage extends LamborghiniAbstractPage{
 
 	
-	@FindBy(xpath="//*[@id='images-s']/div[2]/div[1]/div[1]/div/div/div/div[2]/div/div/a")
+	@FindBy(xpath="//*[@class='top row align-items-end']//a")
 	private ExtendedWebElement superTrofeoButton;
+	
+	@FindBy(xpath="//*[@class='bottom row align-items-start']//a")
+	private ExtendedWebElement gt3ChampionshipButton;
+	
+	@FindBy(xpath="//*[@class='block-img-s two-rows']/div[2]//div[1]/div/a")
+	private ExtendedWebElement raceCarsButton;
+	
+	@FindBy(xpath="//*[@class='block-img-s two-rows']/div[2]//div[2]/div/a")
+	private ExtendedWebElement oneOffButton;
+	
+	@FindBy(xpath="//*[@class='d-flex align-items-center h-100']//a\r\n")
+	private ExtendedWebElement lamborghiniExperienceButton;
 	
 	@FindBy(id="partners")
 	private ExtendedWebElement partnersList; 

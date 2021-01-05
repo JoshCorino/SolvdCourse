@@ -10,8 +10,17 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 public class SuperTrofeoPage extends LamborghiniAbstractPage{
 	   
 	
-	@FindBy(xpath="//*[@id='images-s']/div[2]/div[2]/div[1]/div/div/div[1]/div/div/div/a")
+	@FindBy(xpath="//*[@class='offset-1 offset-lg-2 col-8 col-lg-7 col-xl-6 multi']/div[1]//a")
 	private ExtendedWebElement europeChampionshipButton;
+	
+	@FindBy(xpath="//*[@class='offset-1 offset-lg-2 col-8 col-lg-7 col-xl-6 multi']/div[2]//a")
+	private ExtendedWebElement asiaChampionshipButton;
+	
+	@FindBy(xpath="//*[@class='offset-3 offset-lg-4 col-8 col-lg-7 col-xl-6 multi']/div//a")
+	private ExtendedWebElement northAmericaChampionshipButton;
+	
+	@FindBy(xpath="//*[@class='row align-items-center h-100']//a")
+	private ExtendedWebElement teamsListButton;
 	
     public SuperTrofeoPage(WebDriver driver) {
 		super(driver);
