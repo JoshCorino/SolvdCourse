@@ -14,24 +14,23 @@ import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.solvd.projectLamborghini.gui.pages.ChatbotPage;
 import com.solvd.projectLamborghini.gui.pages.HomePage;
+import com.solvd.projectLamborghini.services.OpenHomeAndAgreeCookiesService;
 
-public class ChatbotTest extends AbstractTest {
+public class ChatbotTest extends AbstractTest implements OpenHomeAndAgreeCookiesService{
 
 	@DataProvider(name = "velocitiesQuestionsAndAnswers")
 	public Object[][] createRightData() {
 		 return new Object[][] 
-		   {{ "What is the top speed of the Huracan?","The top speed of Huracán EVO is more than 325 km/h."},
+		   {{ "What is the top speed of the Huracan?","The top speed of Huracï¿½n EVO is more than 325 km/h."},
 			 {"What is the top speed of the Aventador?","The top speed of Aventador SVJ is more than 350 km/h."}};		 
 	}
 	
     @Test(dataProvider = "velocitiesQuestionsAndAnswers")
 	@MethodOwner(owner ="Joshua Corino")
 	public void testVelocitiesQuestions(String question, String expectedResponse) {
-    	HomePage hp = new HomePage(getDriver());
-		hp.open();
-		hp.getDisclaimerCookie().clickAgreeButton(0);
+    	HomePage hp = openHomeAndAgreeCockies(getDriver());
 		ChatbotPage cp= hp.clickChat(0);
-		TakesScreenshot scrShot =((TakesScreenshot)getDriver());
+		/*TakesScreenshot scrShot =((TakesScreenshot)getDriver());
 		File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
 		File DestFile=new File("src/test/resources/test.png");
 		try {
@@ -39,7 +38,7 @@ public class ChatbotTest extends AbstractTest {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		cp.fillTextArea(question);
 		cp.clickSubmitButton();
 		Assert.assertEquals(cp.getLastResponseText(),expectedResponse);

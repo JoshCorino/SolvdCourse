@@ -19,7 +19,8 @@ public class ChatbotPage extends AbstractPage{
 	@FindBy(xpath="//*[@id=\"submit-btn\"]")
 	private ExtendedWebElement submitButton;
 
-	@FindBy(xpath="(//*[@id=\"card_body\"]/div/div/span)[last()]")
+	//@FindBy(xpath="(//*[@id=\"card_body\"]/div/div/span)[last()]")
+	@FindBy(xpath="//*[@id=\"card_body\"]/div[6]/div")
 	private ExtendedWebElement lastResponse;
 	
 	public ChatbotPage(WebDriver driver) {
@@ -37,16 +38,26 @@ public class ChatbotPage extends AbstractPage{
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("arguments[0].sendKeys("+text+")", ele);
 		//driver.findElement(textArea.getBy()).sendKeys(text);*/
-		textArea.type(text);
+		if(textArea.isElementPresent(120)) {
+			textArea.type(text);
+		}
 	}
 	
 	public void clickSubmitButton() {
-		WebElement ele = driver.findElement(submitButton.getBy());
+		/*WebElement ele = driver.findElement(submitButton.getBy());
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("arguments[0].click()", ele);
+		jse.executeScript("arguments[0].click()", ele);*/
+		if(submitButton.isElementPresent(120)) {
+			WebElement ele = driver.findElement(submitButton.getBy());
+			JavascriptExecutor jse = (JavascriptExecutor)driver;
+			jse.executeScript("arguments[0].click()", ele);
+		}
 	}
 	
 	public String getLastResponseText() {
-		return lastResponse.getText();
+		if(lastResponse.isElementPresent(200)) {
+			return lastResponse.getText();
+		}
+		return "a";
 	}
 }

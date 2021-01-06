@@ -13,6 +13,7 @@ public interface GoToMisanoPageService {
 	default MisanoPage openMisanoPage(WebDriver driver) {
 		HomePage homePage = new HomePage(driver);
 		homePage.open();
+		homePage.getDisclaimerCookie().clickAgreeButton(0);
 		MotorsportPage motorsportPage = homePage.clickMotorsportButton(0);
 		SuperTrofeoPage superPage = motorsportPage.clickSuperTrofeoButton(0);
 		EuropeTrofeoPage europePage = superPage.clickEuropeChampionshipButton(0);

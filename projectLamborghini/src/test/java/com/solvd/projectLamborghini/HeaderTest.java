@@ -4,6 +4,7 @@ import com.qaprosoft.carina.core.foundation.AbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.solvd.projectLamborghini.gui.components.*;
 import com.solvd.projectLamborghini.gui.pages.HomePage;
+import com.solvd.projectLamborghini.services.OpenHomeAndAgreeCookiesService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 
-public class HeaderTest extends AbstractTest {
+public class HeaderTest extends AbstractTest implements OpenHomeAndAgreeCookiesService{
 	
 	private final String EXPECTED_LEFT_TEXT_1= "MODELS";
 	private final String EXPECTED_LEFT_TEXT_2= "OWNERSHIP";
@@ -28,8 +29,8 @@ public class HeaderTest extends AbstractTest {
 	@MethodOwner(owner ="Joshua Corino")
 	public void testHeaderLeftText() {
 
-		HomePage hp = new HomePage(getDriver());
-		hp.open();
+		HomePage hp = openHomeAndAgreeCockies(getDriver());
+
 		Header header = hp.getHeader();
 		List<String> expectedNames = new ArrayList<String>();
 		expectedNames.add(EXPECTED_LEFT_TEXT_1);
@@ -46,8 +47,7 @@ public class HeaderTest extends AbstractTest {
 	@MethodOwner(owner ="Joshua Corino")
 	public void testHeaderRightText() {
 
-		HomePage hp = new HomePage(getDriver());
-		hp.open();
+		HomePage hp = openHomeAndAgreeCockies(getDriver());
 		Header header = hp.getHeader();
 		List<String> expectedNames = new ArrayList<String>();
 		expectedNames.add(EXPECTED_RIGHT_TEXT_1);
