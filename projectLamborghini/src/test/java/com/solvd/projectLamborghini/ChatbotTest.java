@@ -21,15 +21,15 @@ public class ChatbotTest extends AbstractTest implements OpenHomeAndAgreeCookies
 	@DataProvider(name = "velocitiesQuestionsAndAnswers")
 	public Object[][] createRightData() {
 		 return new Object[][] 
-		   {{ "What is the top speed of the Huracan?","The top speed of Hurac�n EVO is more than 325 km/h."},
-			 {"What is the top speed of the Aventador?","The top speed of Aventador SVJ is more than 350 km/h."}};		 
+		   {{ "What is the top speed of the Huracan?","The top speed of Hurac�n EVO is more than 325 km/h."}};
+			 //{"What is the top speed of the Aventador?","The top speed of Aventador SVJ is more than 350 km/h."}};		 
 	}
 	
     @Test(dataProvider = "velocitiesQuestionsAndAnswers")
 	@MethodOwner(owner ="Joshua Corino")
 	public void testVelocitiesQuestions(String question, String expectedResponse) {
     	HomePage hp = openHomeAndAgreeCockies(getDriver());
-		ChatbotPage cp= hp.clickChat(0);
+		ChatbotPage cp= hp.clickChat(0);  
 		/*TakesScreenshot scrShot =((TakesScreenshot)getDriver());
 		File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
 		File DestFile=new File("src/test/resources/test.png");
@@ -40,7 +40,25 @@ public class ChatbotTest extends AbstractTest implements OpenHomeAndAgreeCookies
 			e.printStackTrace();
 		}*/
 		cp.fillTextArea(question);
+		TakesScreenshot scrShot =((TakesScreenshot)getDriver());
+		File srcFile=scrShot.getScreenshotAs(OutputType.FILE);
+		File destFile=new File("src/test/resources/testAfterFill.png");
+		try {
+			FileUtils.copyFile(srcFile, destFile);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		cp.clickSubmitButton();
+		scrShot =((TakesScreenshot)getDriver());
+		srcFile=scrShot.getScreenshotAs(OutputType.FILE);
+		destFile=new File("src/test/resources/testaftersubmit.png");
+		try {
+			FileUtils.copyFile(srcFile, destFile);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Assert.assertEquals(cp.getLastResponseText(),expectedResponse);
     }
 }
