@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Api Tests - Albums Test" parallel="methods">
+
+    <test name="Api Albums Test">
+        <classes>
+            <class name="com.solvd.projectTestApi.api.albums.AlbumsAPITest" />
+        </classes>
+    </test>
+
+</suite>

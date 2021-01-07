@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-01-07T16:43:45 ART" name="Default suite" finished-at="2021-01-07T16:43:47 ART" duration-ms="1940">
+  <suite started-at="2021-01-07T16:48:10 ART" name="Api Tests - Albums Test" finished-at="2021-01-07T16:48:12 ART" duration-ms="2236">
     <groups>
     </groups>
-    <test started-at="2021-01-07T16:43:45 ART" name="Default test" finished-at="2021-01-07T16:43:47 ART" duration-ms="1940">
+    <test started-at="2021-01-07T16:48:10 ART" name="Api Albums Test" finished-at="2021-01-07T16:48:12 ART" duration-ms="2236">
       <class name="com.solvd.projectTestApi.api.albums.AlbumsAPITest">
-        <test-method signature="createAlbum()[pri:0, instance:com.solvd.projectTestApi.api.albums.AlbumsAPITest@7f9e8421]" started-at="2021-01-07T16:43:45 ART" name="createAlbum" finished-at="2021-01-07T16:43:47 ART" duration-ms="1882" status="PASS">
+        <test-method signature="createAlbum()[pri:0, instance:com.solvd.projectTestApi.api.albums.AlbumsAPITest@f8a6243]" started-at="2021-01-07T16:48:10 ART" name="createAlbum" finished-at="2021-01-07T16:48:12 ART" duration-ms="2169" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createAlbum -->
       </class> <!-- com.solvd.projectTestApi.api.albums.AlbumsAPITest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Api Albums Test -->
+  </suite> <!-- Api Tests - Albums Test -->
 </testng-results>
